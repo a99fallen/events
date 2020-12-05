@@ -10,4 +10,7 @@ public class EventsApplication {
 		SpringApplication.run(EventsApplication.class, args);
 	}
 
+	public static void test(){
+		System.out.println("test gita");
+	}
 }
