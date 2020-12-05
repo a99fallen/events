@@ -7,4 +7,3 @@
 ---
 
 Simple app for managing projects
-
