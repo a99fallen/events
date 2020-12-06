@@ -11,6 +11,6 @@ public class HomePageController {
 
     @GetMapping
     public String getHomepage() {
-        return "/";
+        return "redirect:/account";
     }
 }
