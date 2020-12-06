@@ -27,8 +27,8 @@ public class Task {
     private LocalDate createdOn;
     private LocalDate deadline;
 
-    @ManyToOne
-    private User user;
-    @Column(insertable = false, updatable = false, name = "user_id")
-    private Long userId;
+    @ManyToMany
+    private List<User> users;
+
+
 }

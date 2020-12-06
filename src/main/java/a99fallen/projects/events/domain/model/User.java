@@ -17,11 +17,10 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String username;
-
     private String password;
-    private Boolean active = Boolean.FALSE;
+//    private Boolean active = Boolean.FALSE;
 
-    @OneToMany (mappedBy = "user")
+    @ManyToMany (mappedBy = "users")
     private List<Task> tasks;
 
 }
