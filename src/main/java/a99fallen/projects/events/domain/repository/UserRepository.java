@@ -8,4 +8,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     default String getUserByAnyUsername() {
         return "andrzej";
     }
+    Boolean existsUserByUsername(String username);
 }
