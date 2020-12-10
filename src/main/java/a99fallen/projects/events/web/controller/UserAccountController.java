@@ -15,6 +15,6 @@ public class UserAccountController {
     @GetMapping("/account")
     public String getUserAccount() {
 
-    return "/account";
+    return "/user/account";
     }
 }
