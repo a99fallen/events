@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/tasks")
+@RequestMapping("/task")
 @Slf4j
 @RequiredArgsConstructor
 public class AddNewTaskController {
 
-    @GetMapping
+    @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "/tasks/add";
+        return "/task/add";
     }
 }
