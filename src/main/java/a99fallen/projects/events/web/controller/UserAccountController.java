@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@Slf4j
-@RequiredArgsConstructor
+@Slf4j @RequiredArgsConstructor
 @RequestMapping("/account")
 public class UserAccountController {
 
@@ -17,6 +16,6 @@ public class UserAccountController {
 
     @GetMapping
     public String getUserAccount() {
-        return "user/account";
+    return "user/account";
     }
 }
