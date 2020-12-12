@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Zadania</title>
+    <title>Liste zadań</title>
 </head>
 <body>
 <h1>Lista zadań</h1>
-
+<table>
+    <tr>
+        <th>Nazwa</th>
+        <th>Opis</th>
+        <th>Data stworzenia</th>
+        <th>Deadline</th>
+    </tr>
+    <tr th:each="task : ${userTasks}">
+        <th th:text="${task.name}"></th>
+        <th th:text="${task.description}"></th>
+        <th th:text="${task.createdOn}"></th>
+        <th th:text="${task.deadline}"></th>
+    </tr>
+</table>
+    <button onclick="location.href='/task/add'">Dodaj nowe zadanie</button>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package a99fallen.projects.events.sevice;
 
 import a99fallen.projects.events.converter.TaskConverter;
+import a99fallen.projects.events.data.task.TaskSummary;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.domain.model.User;
 import a99fallen.projects.events.domain.repository.TaskRepository;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -34,6 +37,15 @@ public class TaskService {
 
         taskRepository.save(task);
         log.debug("Zapisane zadanie: {}", task);
+    }
+
+    @Transactional
+    public List<TaskSummary> findUserTasks() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.getAuthenticatedUser(username);
+        return taskRepository.findAllByUsersUsername(user).stream()
+                .map(taskConverter::toTaskSummary)
+                .collect(Collectors.toList());
     }
 
     private void updateTaskWithUser(Task task) {
