@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j @RequiredArgsConstructor
 public class TaskController {
 
-    private final Task task;
-
     @PostMapping("/addTask")
     public String addTask() {
         return "/tasks";
