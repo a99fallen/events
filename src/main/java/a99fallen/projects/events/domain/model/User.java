@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -18,22 +19,23 @@ public class User implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, name = "username")
     private String username;
     private String password;
 //    private Boolean active = Boolean.FALSE;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
-            name = "user_roles",
+            name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "username",
-                    referencedColumnName = "username"),
-            indexes = @Index(
-                    name = "user_roles_username_idx",
+                    referencedColumnName = "username"
+            ),
+            indexes = @Index(name = "users_roles_username_idx",
                     columnList = "username"))
     @Column(name = "role")
-    private Set<String> roles;
+    private Set<String> roles = new HashSet<>();
+    
 
     @ManyToMany
     @JoinTable(

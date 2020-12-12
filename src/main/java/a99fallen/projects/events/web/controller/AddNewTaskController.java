@@ -24,7 +24,7 @@ public class AddNewTaskController {
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "task/add";
+        return "/task/add";
     }
 
     @PostMapping("/add")
@@ -32,7 +32,7 @@ public class AddNewTaskController {
         log.debug("Dane do utworzenia zadania: {}", createTaskCommand);
         if(bindings.hasErrors()) {
             log.debug("Dane zawierają błędy: {}", bindings.getAllErrors());
-            return "task/add";
+            return "addd";
         }
 
         try {
@@ -43,7 +43,7 @@ public class AddNewTaskController {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd podczas tworzenia zadania", re);
             bindings.rejectValue(null, null, "Wystąpił błąd");
-            return "task/add";
+            return "addd";
         }
     }
 }
