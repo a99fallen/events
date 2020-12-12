@@ -1,6 +1,5 @@
 package a99fallen.projects.events.sevice;
 
-<<<<<<< HEAD
 import a99fallen.projects.events.converter.TaskConverter;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.domain.model.User;
