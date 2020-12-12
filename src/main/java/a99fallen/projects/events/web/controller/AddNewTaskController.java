@@ -27,23 +27,23 @@ public class AddNewTaskController {
         return "task/add";
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String processAddTask(@Valid CreateTaskCommand createTaskCommand, BindingResult bindings) {
         log.debug("Dane do utworzenia zadania: {}", createTaskCommand);
         if(bindings.hasErrors()) {
             log.debug("Dane zawierają błędy: {}", bindings.getAllErrors());
-            return "";
+            return "task/add";
         }
 
         try {
             taskService.add(createTaskCommand);
             log.debug("Utworzono zadanie");
-            return "/tasks";
+            return "redirect:/task/tasks";
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd podczas tworzenia zadania", re);
             bindings.rejectValue(null, null, "Wystąpił błąd");
-            return "redirect:/add";
+            return "task/add";
         }
     }
 }

@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -22,6 +24,7 @@ public class TaskService {
     private final UserRepository userRepository;
     private final TaskConverter taskConverter;
 
+    @Transactional
     public void add(CreateTaskCommand createTaskCommand) {
         log.debug("Dane do utworzenia zadania: {}", createTaskCommand);
 
@@ -36,6 +39,8 @@ public class TaskService {
     private void updateTaskWithUser(Task task) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.getAuthenticatedUser(username);
-        task.setUsers((Set<User>) user);
+        task.setUsers(new HashSet<>());
+        Set<User> users = task.getUsers();
+        users.add(user);
     }
 }
