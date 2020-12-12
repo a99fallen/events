@@ -1,0 +1,61 @@
+/* font-size */
+
+.font-size--xs {
+    font-size: 11px;
+}
+
+.font-size--s {
+    font-size: 14px;
+}
+
+.font-size {
+    font-size: 16px;
+}
+
+.font-size--m {
+    font-size: 22px;
+}
+
+.font-size--l {
+    font-size: 26px;
+}
+
+.font-size--xl {
+    font-size: 32px;
+}
+
+/* font-weight */
+
+.font-weight--thin {
+    font-weight: 100;
+}
+
+.font-weight--light {
+    font-weight: 300;
+}
+
+.font-weight--regular {
+    font-weight: 400;
+}
+
+.font-weight--medium {
+    font-weight: 500;
+}
+
+.font-weight--bold {
+    font-weight: 700;
+}
+
+/* font-color */
+
+.color--primary {
+    color: black;
+}
+
+.color--secondary {
+    color: #9ba4b4;
+}
+
+.color--thirdly {
+    color: black;
+}
