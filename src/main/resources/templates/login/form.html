@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/login/login.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="container display--flex justify--center align--center">
+    <div class="app-container login-container">
+        <div class="login">
+            <form th:action="@{/login}" th:method="post">
+                <h1 class="color--secondary title-log">Login</h1>
+                <br>
+                <label><b class="color--secondary">Email
+                </b>
+                </label>
+                <br>
+                <input type="email" required name="username" id="username" placeholder="Email">
+                <br><br>
+                <label><b class="color--secondary">Password
+                </b>
+                </label>
+                <br>
+                <input type="password" required name="password" id="password" placeholder="Password">
+                <br><br>
+                <button class="login-btn" type="submit" name="Login">Log In</button>
+                <br><br>
+                <div>
+                    Don't have an account?<a class="singup" href="/register">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
