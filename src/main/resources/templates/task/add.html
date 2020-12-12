@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj zadanie</title>
+</head>
+<body>
+<h1>Dodaj zadanie</h1>
+<div>
+    <form th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
+        <fieldset>
+            <div>
+                <label>Nazwa:
+                    <input type="text" th:field="*{name}" name="name" required>
+                </label>
+                <div th:if="${#fields.hasErrors('name')}">
+                    <span th:each="err : ${#fields.errors('name')}" th:text="${err}"></span>
+                </div>
+            </div>
+            <div>
+                <label>Opis:
+                    <textarea th:field="*{description}"></textarea>
+                </label>
+                <div th:if="${#fields.hasErrors('description')}">
+                    <span th:each="err : ${#fields.errors('description')}" th:text="${err}"></span>
+                </div>
+            </div>
+            <button type="submit">Dodaj zadanie</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

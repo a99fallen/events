@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{registration.success.title}">Zalogowano</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <title th:text="#{registration.success.title}">User Account</title>
 </head>
-<body>
-<section>
-    <h1 th:text="#{registration.success.subtitle}">Zalogowałeś się YEY!!!</h1>
-</section>
 
+<body>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="container display--flex justify--center align--center">
+        <div class="app-container">
+            <section>
+                <nav class="navigation-bar display--flex flex--row">
+                    <div class="menu-bar-section color--secondary display--flex flex--row align--center">
+                        <i class="menu_icon fas fa-bars"></i>
+                        <p class="menu color--secondary">Menu</p>
+                    </div>
+                    <div class="search-bar-section"></div>
+                    <div class="logged-in-section color--secondary display--flex display--row align--center justify--end">
+                        <i class="profile-icon far fa-user-circle"></i>
+                        <h1 th:text="#{registration.success.subtitle}">you are logged in.</h1>
+                    </div>
+                </nav>
+                <main class="main-wrapper display--flex flex--row">
+                    <div class="menu-section color--secondary">
+                        <div class="upper-task-bar display--flex display--row align--center">
+                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
+                            <p class="task">Task</p>
+                        </div>
+                        <div class="task-bar display--flex display--row align--center">
+                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
+                            <p class="task">Task</p>
+                        </div>
+                        <div class="task-bar display--flex display--row align--center">
+                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
+                            <p class="task">Task</p>
+                        </div>
+                    </div>
+                    <div class="board-section">
+
+                    </div>
+                </main>
+            </section>
+        </div>
+    </div>
 </body>
+
 </html>

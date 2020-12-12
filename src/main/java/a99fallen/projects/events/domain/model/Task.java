@@ -4,8 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tasks")
@@ -27,8 +29,6 @@ public class Task {
     private LocalDate createdOn;
     private LocalDate deadline;
 
-    @ManyToMany
-    private List<User> users;
-
-
+    @ManyToMany (mappedBy = "tasks")
+    private Set<User> users = new HashSet();
 }

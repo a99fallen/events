@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -38,4 +39,10 @@ public class User implements Serializable {
     @ManyToMany (mappedBy = "users")
     private List<Task> tasks;
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_tasks",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "task_id"))
+    private List<Task> tasks = new ArrayList<>();
 }
