@@ -19,19 +19,17 @@
 <div class="container display--flex justify--center align--center">
     <div class="app-container login-container">
         <div class="login">
-            <form th:action="@{/login}" th:method="post">
+            <form class="form-login" th:action="@{/login}" th:method="post">
                 <h1 class="color--secondary title-log">Login</h1>
                 <br>
                 <label><b class="color--secondary">Email
                 </b>
                 </label>
-                <br>
                 <input type="email" required name="username" id="username" placeholder="Email">
-                <br><br>
+                <br>
                 <label><b class="color--secondary">Password
                 </b>
                 </label>
-                <br>
                 <input type="password" required name="password" id="password" placeholder="Password">
                 <br><br>
                 <button class="login-btn" type="submit" name="Login">Log In</button>
