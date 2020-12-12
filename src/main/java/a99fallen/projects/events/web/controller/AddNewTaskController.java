@@ -19,12 +19,12 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AddNewTaskController {
 
-    private TaskService taskService;
+    private final TaskService taskService;
 
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "/task/add";
+        return "task/add";
     }
 
     @PostMapping
@@ -32,13 +32,13 @@ public class AddNewTaskController {
         log.debug("Dane do utworzenia zadania: {}", createTaskCommand);
         if(bindings.hasErrors()) {
             log.debug("Dane zawierają błędy: {}", bindings.getAllErrors());
-            return "/tasks";
+            return "";
         }
 
         try {
             taskService.add(createTaskCommand);
             log.debug("Utworzono zadanie");
-            return "redirect:";
+            return "/tasks";
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd podczas tworzenia zadania", re);
