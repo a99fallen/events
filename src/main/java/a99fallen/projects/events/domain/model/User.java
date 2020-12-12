@@ -35,9 +35,7 @@ public class User implements Serializable {
                     columnList = "username"))
     @Column(name = "role")
     private Set<String> roles = new HashSet<>();
-
-    @ManyToMany (mappedBy = "users")
-    private List<Task> tasks;
+    
 
     @ManyToMany
     @JoinTable(
