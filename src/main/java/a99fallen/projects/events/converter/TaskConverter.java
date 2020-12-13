@@ -6,6 +6,8 @@ import a99fallen.projects.events.web.command.CreateTaskCommand;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class TaskConverter {
 
@@ -13,6 +15,8 @@ public class TaskConverter {
         return Task.builder()
                 .name(command.getName())
                 .description(command.getDescription())
+                .createdOn(LocalDateTime.now())
+                .deadline(command.getDeadline())
                 .build();
     }
 
