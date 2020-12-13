@@ -23,8 +23,8 @@
     <tr th:each="task : ${userTasks}">
         <th th:text="${task.name}"></th>
         <th th:text="${task.description}"></th>
-        <th th:text="${task.createdOn}"></th>
-        <th th:text="${task.deadline}"></th>
+        <th th:text="${#temporals.format(task.createdOn,'yyyy-MM-dd : HH:mm')}"></th>
+        <th th:text="${#temporals.format(task.deadline,'yyyy-MM-dd : HH:mm')}"></th>
     </tr>
 </table>
     <button onclick="location.href='/task/add'">Dodaj nowe zadanie</button>
