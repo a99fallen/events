@@ -10,84 +10,267 @@
 }
 
 .app-container {
-    width: 62.5vw;
-    height: 80vh;
+    width: 900px;
+    height: 600px;
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0px 5px 10px 0px #adc9db;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
+}
+
+/* right-side */
+
+.right-side-wrapper {
+    width: 175px;
+    height: inherit;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.menu-bar-section {
+    height: 50px;
+    width: 175px;
+    background-color: #ffffff;
+    border-radius: 20px 0px 0px 0px;
+}
+
+.menu_btn {
+    padding-left: 15px;
+}
+
+.menu_icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.menu_title {
+    font-size: 16px;
+}
+
+.task-list {
+    padding-top: 15px;
+}
+
+.custom-task {
+    height: 45px;
+    padding-left: 15px;
+}
+
+.task_icon {
+    padding-right: 7.5px;
+}
+
+ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li:hover {
+    background: #ffffff;
+}
+
+ul li:hover ul {
+    display: block;
+}
+
+ul li ul {
+    position: absolute;
+    width: 175px;
+    display: none;
+}
+
+ul li ul li {
+    background: #9fc0d5;
+    display: block;
+}
+
+/* ul li ul li {
+    display: block !important;
+} */
+
+.menu_icon {
+    display: block !important
+}
+
+ul li ul li:hover {
+    background: #c8dbe7;
+}
+
+/* .menu_btn:hover {
+
+} */
+
+/* left-side */
+
+.left-side-wrapper {
+    width: 725px;
+    height: inherit;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .navigation-bar {
     width: inherit;
-    height: 3.5rem;
-    background-color: #ffffff;
-    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    border-radius: 22.5px 22.5px 0px 0px;
 }
 
 .main-wrapper {
     width: inherit;
-    height: 32.75rem;
-    border-radius: 0px 0px 20px 20px;
-}
-
-.menu-section {
-    height: inherit;
-    width: 10rem;
-    background-color: #ffffff;
-    border-radius: 0px 0px 0px 20px;
-    padding-left: 1.25rem;
+    height: 550px;
+    border-radius: 0px 0px 22.5px 22.5px;
 }
 
 .board-section {
     height: inherit;
-    width: 52.5rem;
-    background-color: #f2f6f9;
+    width: 725px;
+    background-color: #ffffff;
     border-radius: 0px 0px 20px 0px;
 }
 
-.menu-bar-section {
-    height: inherit;
-    width: 10rem;
+.task-view {
+    height: 465px;
+    width: inherit;
+
+}
+
+.add-btn-section {
+    height: 85px;
+    width: inherit;
+}
+
+.add-btn {
+    font-size: 40px;
+}
+
+.add-btn-wrapper {
+    width: 55px;
+    height: 55px;
+    border-radius: 35px;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
+    margin-right: 15px;
+}
+
+.single-task-wrapper {
+    width: 710px;
+    height: 465px;
+    border-radius: 20px;
+    background-color: #f2f6f9;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
+}
+
+.task-inf-section {
+    width: 475px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.task-btn-section {
+    width: 235px;
+    padding-top: 10px;
+}
+
+.task-name,
+.task-description {
+    width: 455px;
+    border-radius: 7.5px;
+}
+
+.task-name {
+    margin-bottom: 10px;
+}
+
+.task-name {
+    height: 35px;
+}
+
+.task-description {
+    height: 400px;
+}
+
+.date-created,
+.date-deadline {
+    height: 35px;
+    width: 225px;
+    border-radius: 7.5px;
+}
+
+.date-created {
+    margin-bottom: 10px;
+}
+
+.action-btn-wrapper {
+    width: inherit;
+    height: 375px;
+
+}
+
+.save-btn-wrapper,
+.trash-btn-wrapper {
+    width: 45px;
+    height: 45px;
+    border-radius: 35px;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
+    margin-right: 12.5px;
+    margin-bottom: 12.5px;
     background-color: #ffffff;
-    padding-left: 1.25rem;
-    border-radius: 20px 0px 0px 0px;
+}
+
+.save-btn-wrapper:hover,
+.trash-btn-wrapper:hover,
+.add-btn-wrapper:hover {
+    cursor: pointer;
+}
+
+
+input {
+    border: 1px solid #9ba4b4;
+}
+
+input:focus {
+    border: none;
 }
 
 .search-bar-section {
     height: inherit;
-    width: 37rem;
+    width: 400px;
     background-color: #ffffff;
 }
 
 .logged-in-section {
     height: inherit;
-    width: 15.5rem;
+    width: 325px;
     background-color: #ffffff;
-    border-radius: 0px 20px 0px 0px;
-    padding-right: 1rem;
+    border-radius: 0px 22.5px 0px 0px;
+    padding-right: 22.5px;
 }
 
-.menu_icon {
-    font-size: 1rem;
-    margin-right: 1rem;
-}
-
-.profile-icon{
+.profile-icon {
     font-size: 1.5rem;
     margin-right: 1rem;
 }
 
-.task-bar-icon {
-    font-size: 1rem;
-    margin-right: 1rem;
+a:visited {
+    color: #9ba4b4;
 }
 
-.upper-task-bar {
-    margin-top: 3rem;
+.add-btn-wrapper {
+    text-decoration: none;
 }
 
-.upper-task-bar,
-.task-bar {
-    width: 1.75rem;
-    height: 3rem;
+.add-btn {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input:active,
+input:focus {
+    outline: none;
+    border: 1px solid #9ba4b4;
+    border-radius: 7.5px;
 }
