@@ -1,7 +1,9 @@
 package a99fallen.projects.events.converter;
 
+import a99fallen.projects.events.data.task.TaskSummary;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,6 +13,17 @@ public class TaskConverter {
         return Task.builder()
                 .name(command.getName())
                 .description(command.getDescription())
+                .build();
+    }
+
+    public TaskSummary toTaskSummary(Task task) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return TaskSummary.builder()
+                .name(task.getName())
+                .description(task.getDescription())
+                .createdOn(task.getCreatedOn())
+                .deadline(task.getDeadline())
+                .username(username)
                 .build();
     }
 }
