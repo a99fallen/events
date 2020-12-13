@@ -15,41 +15,89 @@
 <body>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <div class="container display--flex justify--center align--center">
-        <div class="app-container">
-            <section>
+        <div class="app-container display--flex display--row">
+            <!-- right side -->
+            <div class="right-side-wrapper">
+                <div class="menu-bar-section color--secondary display--flex flex--row align--center">
+                    <ul>
+                        <li>
+                            <div class="menu_btn display--flex display--row">
+                                <i class="menu_icon fas fa-ellipsis-h"></i>
+                                <p class="menu_title color--secondary">Tasks</p>
+                            </div>
+                            <ul class="task-list">
+                                <li class="custom-task display--flex display--row align--center">
+                                    <i class="task_icon fas fa-angle-right"></i>
+                                    <p>Task-1</p>
+                                </li>
+                                <li class="custom-task display--flex display--row align--center">
+                                    <i class="task_icon fas fa-angle-right"></i>
+                                    <p>Task-1</p>
+                                </li>
+                                <li class="custom-task display--flex display--row align--center">
+                                    <i class="task_icon fas fa-angle-right"></i>
+                                    <p>Task-1</p>
+                                </li>
+                                <li class="custom-task display--flex display--row align--center">
+                                    <i class="task_icon fas fa-angle-right"></i>
+                                    <p>Task-1</p>
+                                </li>
+                                <li class="custom-task display--flex display--row align--center">
+                                    <i class="task_icon fas fa-angle-right"></i>
+                                    <p>Task-1</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- left side -->
+            <div class="left-side-wrapper">
+                <!-- navigation-bar -->
                 <nav class="navigation-bar display--flex flex--row">
-                    <div class="menu-bar-section color--secondary display--flex flex--row align--center">
-                        <i class="menu_icon fas fa-bars"></i>
-                        <p class="menu color--secondary">Menu</p>
-                    </div>
                     <div class="search-bar-section"></div>
-                    <div class="logged-in-section color--secondary display--flex display--row align--center justify--end">
+                    <div
+                        class="logged-in-section color--secondary display--flex display--row align--center justify--end">
                         <i class="profile-icon far fa-user-circle"></i>
-                        <h1 th:text="#{registration.success.subtitle}">you are logged in.</h1>
+                        <h1 th:text="#{registration.success.subtitle}">you are logged.</h1>
                     </div>
                 </nav>
+                <!-- main section -->
                 <main class="main-wrapper display--flex flex--row">
-                    <div class="menu-section color--secondary">
-                        <div class="upper-task-bar display--flex display--row align--center">
-                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
-                            <p class="task">Task</p>
-                        </div>
-                        <div class="task-bar display--flex display--row align--center">
-                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
-                            <p class="task">Task</p>
-                        </div>
-                        <div class="task-bar display--flex display--row align--center">
-                            <i class="task-bar-icon fas fa-ellipsis-h"></i>
-                            <p class="task">Task</p>
-                        </div>
-                    </div>
                     <div class="board-section">
-
+                        <div class="task-view display--flex">
+                            <div class="single-task-wrapper display--flex display--row">
+                                <div class="task-inf-section">
+                                    <input class="task-name" type="text">
+                                    <input class="task-description" type="text">
+                                </div>
+                                <div class="task-btn-section">
+                                    <input class="date-created" type="date">
+                                    <input class="date-deadline" type="date">
+                                    <div class="action-btn-wrapper display--flex justify--end align--end">
+                                        <div
+                                            class="save-btn-wrapper display--flex justify--center align--center color--secondary">
+                                            <i class="fas fa-save"></i>
+                                        </div>
+                                        <div
+                                            class="trash-btn-wrapper display--flex justify--center align--center color--secondary">
+                                            <i class="fas fa-trash"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-btn-section color--secondary display--flex align--center justify--end">
+                            <a href="/static/templates/task/add.html">
+                                <div class="add-btn-wrapper display--flex justify--center align--center">
+                                    <i class="add-btn fas fa-plus"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </main>
-            </section>
+            </div>
         </div>
     </div>
 </body>
-
 </html>
