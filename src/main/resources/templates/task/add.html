@@ -31,11 +31,19 @@
                 </label>
                 </div>
                 <textarea class="description-input" type="text" required name="description" placeholder="Description"></textarea>
+                <div class="input-group date" data-provide="datepicker">
+                    <input name="deadline" type="datetime-local">
+                </div>
                 <button class="save-btn" type="submit" name="Save">Save</button>
             </form>
         </div>
     </div>
 </div>
 </body>
+<script>
+    $('#date').datepicker({
+        format: 'dd-MM-yyyy'
+    });
+</script>
 
 </html>

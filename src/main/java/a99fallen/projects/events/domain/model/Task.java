@@ -1,11 +1,11 @@
 package a99fallen.projects.events.domain.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,8 +26,11 @@ public class Task {
     @Column(nullable = false)
     @Size(min = 3, max = 1023)
     private String description;
-    private LocalDate createdOn;
-    private LocalDate deadline;
+    @Column(name = "created_on")
+    @DateTimeFormat (pattern = "yyyy-MM-dd : HH:mm")
+    private LocalDateTime createdOn;
+    @DateTimeFormat (pattern = "yyyy-MM-dd : HH:mm")
+    private LocalDateTime deadline;
 
     @ManyToMany (mappedBy = "tasks")
     private Set<User> users = new HashSet();

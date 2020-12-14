@@ -24,6 +24,7 @@ public class AddNewTaskController {
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
+        model.addAttribute("userTasks", taskService.findUserTasks());
         return "/task/add";
     }
 
