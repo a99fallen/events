@@ -49,5 +49,6 @@ table {
 
 input:focus,
 textarea:focus {
-    outline: 1px solid #9ba4b4;
+    /* outline: 1px solid #9ba4b4; */
+    outline: none;
 }
