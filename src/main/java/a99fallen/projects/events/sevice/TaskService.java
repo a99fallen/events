@@ -1,6 +1,7 @@
 package a99fallen.projects.events.sevice;
 
 import a99fallen.projects.events.converter.TaskConverter;
+import a99fallen.projects.events.converter.UserConverter;
 import a99fallen.projects.events.data.task.TaskSummary;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.domain.model.User;
@@ -43,7 +44,7 @@ public class TaskService {
     public List<TaskSummary> findUserTasks() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.getAuthenticatedUser(username);
-        return taskRepository.findAllByUsersUsername(user).stream()
+        return user.getTasks().stream()
                 .map(taskConverter::toTaskSummary)
                 .collect(Collectors.toList());
     }
@@ -51,6 +52,8 @@ public class TaskService {
     private void updateTaskWithUser(Task task) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.getAuthenticatedUser(username);
+        List<Task> usersTasks = user.getTasks();
+        usersTasks.add(task);
         task.setUsers(new HashSet<>());
         Set<User> users = task.getUsers();
         users.add(user);
