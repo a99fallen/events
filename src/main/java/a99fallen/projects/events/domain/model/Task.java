@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "tasks")
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-@ToString
+@ToString(exclude = "users")
 @EqualsAndHashCode(of = "id")
 public class Task {
 
