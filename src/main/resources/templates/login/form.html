@@ -16,6 +16,17 @@
 
 <body>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
+            <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
+                <p>PL</p>
+            </div>
+            <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
+                <p>EN</p>
+            </div>
+            <div class="i-btn-wrapper display--flex justify--center align--center">
+                <i class="i-btn fas fa-info"></i>
+            </div>
+        </div>
     <div class="container display--flex justify--center align--center">
         <div class="app-container display--flex display--row">
             <div class="greetings-wrapper">
@@ -31,10 +42,11 @@
                         th:method="post">
                         <label>Email</label>
                         <input type="email" required name="username" id="username" placeholder="Email">
-                        <label>Password</label>
+                        <label class="password-label">Password</label>
                         <input type="password" required name="password" id="password" placeholder="Password">
                         <div class="display--flex justify--center align--center">
-                            <button class="login-btn color--primary font-size" type="submit" name="Login">Log In</button>
+                            <button class="login-btn color--primary font-size" type="submit" name="Login">Log
+                                In</button>
                         </div>
                     </form>
                 </div>

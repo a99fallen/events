@@ -94,47 +94,6 @@
     padding-top: 10px;
 }
 
-/* ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    display: inline-block;
-}
-
-ul li:hover {
-    background: #ffffff;
-}
-
-ul li:hover ul {
-    display: block;
-}
-
-ul li ul {
-    position: absolute;
-    width: 175px;
-    display: none;
-}
-
-ul li ul li {
-    background: #9fc0d5;
-    display: block;
-} */
-
-/* ul li ul li {
-    display: block !important;
-} */
-
-/* .menu_icon {
-    display: block !important
-}
-
-ul li ul li:hover {
-    background: #c8dbe7;
-} */
-
 /* left-side */
 
 .left-side-wrapper {
@@ -245,7 +204,6 @@ ul li ul li:hover {
     height: 45px;
     border-radius: 35px;
     box-shadow: -4px -4px 15px #FFF, 4px 4px 15px #9fc0d5;
-    /* box-shadow: 0px 5px 10px 0px #9fc0d5; */
     margin-right: 12.5px;
     margin-bottom: 12.5px;
     background-color: #ffffff;
@@ -262,9 +220,7 @@ ul li ul li:hover {
     text-shadow: 1px 1px 0px #ffffff;
 }
 
-
 input {
-    /* border: 1px solid #9ba4b4; */
     border: none;
 }
 
@@ -317,7 +273,6 @@ a {
 input:active,
 input:focus {
     outline: none;
-    /* border: 1px solid #9ba4b4; */
     border-radius: 7.5px;
 }
 
@@ -330,23 +285,6 @@ input {
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
     appearance: none;
-    /* -webkit-appearance: none; */
-}
-
-input::placeholder {
-    color: #9fc0d5;
-}
-
-input[type=date]::-webkit-calendar-picker-indicator {
-    color: #9fc0d5;
-}
-
-input[type=date]::-webkit-clear-button {
-    color: #9fc0d5;
-}
-
-input[type=date]::-webkit-inner-spin-button {
-    color: #9fc0d5;
 }
 
 .label {
