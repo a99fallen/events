@@ -39,7 +39,7 @@ public class AddNewTaskController {
         try {
             taskService.add(createTaskCommand);
             log.debug("Utworzono zadanie");
-            return "redirect:/task/tasks";
+            return "redirect:/account";
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd podczas tworzenia zadania", re);

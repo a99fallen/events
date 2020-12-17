@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -13,54 +13,55 @@
 </head>
 
 <body>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <div class="container display--flex justify--center align--center">
-        <div class="app-container display--flex display--row">
-            <!-- right side -->
-            <div class="right-side-wrapper">
-                <div class="menu-section color--primary">
-                    <div class="dropdown color--primary font-size--s" style="float:left;">
-                        <div class="dropdown-btn display--flex display--row align--center">
-                            <i class="menu_icon far fa-list-alt"></i>
-                            <h1 class="color--primary font-size--m">Tasks</h1>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="container display--flex justify--center align--center">
+    <div class="app-container display--flex display--row">
+        <!-- right side -->
+        <div class="right-side-wrapper">
+            <div class="menu-section color--primary">
+                <div class="dropdown color--primary font-size--s" style="float:left;">
+                    <div class="dropdown-btn display--flex display--row align--center">
+                        <i class="menu_icon far fa-list-alt"></i>
+                        <h1 class="color--primary font-size--m">Tasks</h1>
+                    </div>
+                    <div class="dropdown-content display--flex display--row align--center" style="left:1;">
+                        <div th:each="task:${userTasks}" class="custom-task display--flex display--row align--center">
+                            <i class="task_icon fas fa-angle-right"></i>
+                            <a th:href="@{/account/{name}(name = ${task.name})}" th:text="${task.name}">About</a>
                         </div>
-                        <div class="dropdown-content display--flex display--row align--center" style="left:1;">
-                            <div class="custom-task display--flex display--row align--center">
-                                <i class="task_icon fas fa-angle-right"></i>
-                                <p>default task</p>
-                            </div>
-                            <div class="custom-task display--flex display--row align--center">
-                                <i class="task_icon fas fa-angle-right"></i>
-                                <p>default task</p>
-                            </div>
-                            <div class="custom-task display--flex display--row align--center">
-                                <i class="task_icon fas fa-angle-right"></i>
-                                <p>default task</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
-            <!-- left side -->
-            <div class="left-side-wrapper">
-                <!-- navigation-bar -->
-                <nav class="nav-bar display--flex flex--row">
-                    <div class="login-section display--flex display--row justify--between">
-                        <h1 class="heading color--primary font-size--m">Taskboard</h1>
-                        <i class="profile-icon far fa-user-circle"></i>
-                        <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
-                    </div>
-                </nav>
-                <!-- main section -->
-                <main class="main-wrapper display--flex flex--row">
-                    <div class="board-section">
+        </div>
+        <!-- left side -->
+        <div class="left-side-wrapper">
+            <!-- navigation-bar -->
+            <nav class="nav-bar display--flex flex--row">
+                <div class="login-section display--flex display--row justify--between">
+                    <h1 class="heading color--primary font-size--m">Taskboard</h1>
+                    <i class="profile-icon far fa-user-circle"></i>
+                    <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
+                </div>
+            </nav>
+            <!-- main section -->
+            <main class="main-wrapper display--flex flex--row">
+                <div class="board-section">
+                    <form th:action="@{/account}" th:method="post" th:object="${userTask}">
                         <div class="task-view display--flex">
                             <div class="single-task-wrapper display--flex display--row">
+
+
                                 <div class="left-task-section">
                                     <p class="task-label">Task name</p>
-                                    <input class="task-name" type="text">
+                                    <label>
+                                        <input class="task-name" type="text" th:field="*{name}" name="name">
+                                    </label>
                                     <p class="task-label">Task description</p>
-                                    <input class="task-description" type="text">
+                                    <label>
+                                        <input class="task-description" type="text" th:field="*{description}"
+                                               name="description">
+                                    </label>
                                 </div>
                                 <div class="right-task-section">
                                     <p class="task-label">Task creation date</p>
@@ -69,34 +70,37 @@
                                     <input class="date-deadline" type="date">
                                     <!-- action-buttons-section -->
                                     <div class="action-btn-wrapper display--flex justify--end align--end">
-                                        <div
-                                            class="save-btn-wrapper display--flex justify--center align--center color--primary">
+
+                                        <button type="submit" hidden="hidden"
+                                                class="save-btn-wrapper display--flex justify--center align--center color--primary">
                                             <i class="save-btn_icon fas fa-save"></i>
-                                        </div>
-                                        <div
-                                            class="trash-btn-wrapper display--flex justify--center align--center color--primary">
+                                        </button>
+                                        <button formaction="deleteTask" type="submit" hidden="hidden"
+                                                class="trash-btn-wrapper display--flex justify--center align--center color--primary">
                                             <i class="trash-btn_icon fas fa-trash"></i>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-                        <!-- add-button-section -->
-                        <div class="add-btn-section display--flex align--center justify--between">
-                            <a href="/task/add">
-                                <div class="add-btn-wrapper display--flex justify--center align--center">
-                                    <p class="add-btn_label">Add new task</p>
-                                    <i class="add-btn_icon fas fa-plus"></i>
-                                </div>
-                            </a>
-                            <div class="info-btn-wrapper display--flex justify--center align--center"><i
-                                    class="info-btn_icon fas fa-info"></i></div>
-                        </div>
+                    </form>
+                    <!-- add-button-section -->
+                    <div class="add-btn-section display--flex align--center justify--between">
+                        <a href="/task/add">
+                            <div class="add-btn-wrapper display--flex justify--center align--center">
+                                <p class="add-btn_label">Add new task</p>
+                                <i class="add-btn_icon fas fa-plus"></i>
+                            </div>
+                        </a>
+                        <div class="info-btn-wrapper display--flex justify--center align--center"><i
+                                class="info-btn_icon fas fa-info"></i></div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
     </div>
+</div>
 </body>
 
 </html>

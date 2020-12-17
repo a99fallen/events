@@ -3,6 +3,7 @@ package a99fallen.projects.events.converter;
 import a99fallen.projects.events.data.task.TaskSummary;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
+import a99fallen.projects.events.web.command.EditTaskCommand;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -29,5 +30,19 @@ public class TaskConverter {
                 .deadline(task.getDeadline())
                 .username(username)
                 .build();
+    }
+
+
+    public EditTaskCommand editTaskCommand(Task task) {
+        return EditTaskCommand.builder()
+                .name(task.getName().trim())
+                .description(task.getDescription().trim())
+                .build();
+    }
+
+    public Task editTaskFromCommand(EditTaskCommand editTaskCommand, Task task){
+        task.setName(editTaskCommand.getName().trim());
+        task.setDescription(editTaskCommand.getDescription().trim());
+        return  task;
     }
 }

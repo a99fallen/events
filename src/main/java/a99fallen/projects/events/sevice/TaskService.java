@@ -8,6 +8,7 @@ import a99fallen.projects.events.domain.model.User;
 import a99fallen.projects.events.domain.repository.TaskRepository;
 import a99fallen.projects.events.domain.repository.UserRepository;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
+import a99fallen.projects.events.web.command.EditTaskCommand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -57,5 +58,29 @@ public class TaskService {
         task.setUsers(new HashSet<>());
         Set<User> users = task.getUsers();
         users.add(user);
+    }
+    public EditTaskCommand getTaskByName(String name){
+        Task task = taskRepository.getByName(name);
+        EditTaskCommand editTaskCommand = taskConverter.editTaskCommand(task);
+        return editTaskCommand;
+    }
+    @Transactional
+    public boolean edit(EditTaskCommand editTaskCommand, String name) {
+        log.debug("Dane do edycji taska: {}", editTaskCommand);
+        Task test = taskRepository.getByName(name);
+        taskConverter.editTaskFromCommand(editTaskCommand, test);
+        return true;
+    }
+
+    @Transactional
+    public boolean deleteTask(String selectedTaskName) {
+        Task task = taskRepository.getByName(selectedTaskName);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.getAuthenticatedUser(username);
+        if(user.getTasks().contains(task)){
+            user.getTasks().remove(task);
+        }
+        taskRepository.delete(task);
+        return true;
     }
 }
