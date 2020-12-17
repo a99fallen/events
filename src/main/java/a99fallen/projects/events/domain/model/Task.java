@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,10 +20,8 @@ public class Task {
     private Long id;
 
     @Column(nullable = false)
-    @Size(min = 3, max = 45)
     private String name;
     @Column(nullable = false)
-    @Size(min = 3, max = 1023)
     private String description;
     @Column(name = "created_on")
     @DateTimeFormat (pattern = "yyyy-MM-dd : HH:mm")

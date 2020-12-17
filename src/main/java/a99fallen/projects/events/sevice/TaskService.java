@@ -1,7 +1,6 @@
 package a99fallen.projects.events.sevice;
 
 import a99fallen.projects.events.converter.TaskConverter;
-import a99fallen.projects.events.converter.UserConverter;
 import a99fallen.projects.events.data.task.TaskSummary;
 import a99fallen.projects.events.domain.model.Task;
 import a99fallen.projects.events.domain.model.User;

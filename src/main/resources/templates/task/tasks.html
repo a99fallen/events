@@ -11,22 +11,38 @@
     <link rel="stylesheet" href="/css/task/task.css">
     <title th:text="#{task.list.title}">Liste zadań</title>
 </head>
-<body>
-<h1>Lista zadań</h1>
-<table>
-    <tr>
-        <th>Nazwa</th>
-        <th>Opis</th>
-        <th>Data stworzenia</th>
-        <th>Deadline</th>
-    </tr>
-    <tr th:each="task : ${userTasks}">
-        <th th:text="${task.name}"></th>
-        <th th:text="${task.description}"></th>
-        <th th:text="${#temporals.format(task.createdOn,'yyyy-MM-dd : HH:mm')}"></th>
-        <th th:text="${#temporals.format(task.deadline,'yyyy-MM-dd : HH:mm')}"></th>
-    </tr>
-</table>
-    <button onclick="location.href='/task/add'">Dodaj nowe zadanie</button>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="container display--flex justify--center align--center">
+    <div class="app-container login-container">
+        <div class="login">
+            <h1 class="color--secondary title-log">Lista zadań</h1>
+            <table>
+                <fieldset>
+                    <div>
+                        <tr>
+                            <th class="color--secondary"><strong>Nazwa</strong></th>
+                            <th class="color--secondary"><strong>Opis</strong></th>
+                            <th class="color--secondary"><strong>Data stworzenia</strong></th>
+                            <th class="color--secondary"><strong>Deadline</strong></th>
+                        </tr>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div>
+                        <tr th:each="task : ${userTasks}">
+                            <th th:text="${task.name}" class="color--secondary"></th>
+                            <th th:text="${task.description}" class="color--secondary"></th>
+                            <th th:text="${#temporals.format(task.createdOn,'yyyy-MM-dd : HH:mm')}"
+                                class="color--secondary"></th>
+                            <th th:text="${#temporals.format(task.deadline,'yyyy-MM-dd : HH:mm')}"
+                                class="color--secondary"></th>
+                        </tr>
+                    </div>
+                </fieldset>
+            </table>
+            <button class="save-btn" onclick="location.href='/task/add'">Dodaj nowe zadanie</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -2,6 +2,10 @@ body {
     background-color: #6abadeba;
     font-family: 'Open Sans', sans-serif;
 }
+th {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .form-addtask{
     width: 35vw;
     height: 40vh;
@@ -51,6 +55,9 @@ body {
 .description{
     text-align: center;
 }
+.deadline{
+    text-align: center;
+}
 
 
 label {
@@ -75,5 +82,4 @@ label {
     border-color: #9ba4b4;
     resize: none;
     margin-bottom: 20px;
-
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/task/task.css">
-    <title th:text="#{task.list.title}">Add task</title>
+    <title th:text="#{add.page.title}">Add task</title>
 </head>
 
 <body>
@@ -19,22 +19,28 @@
     <div class="app-container addtask-container">
         <div class="div-addtask">
             <form class="form-addtask" th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
-                <div class="title">
-                <label><b class="color--secondary">Title:
-                </b>
-                </label>
-                </div>
-                <input class="name" type="text" required name="name" placeholder="Name">
-                <div class=" description">
-                <label><b class="color--secondary">Description
-                </b>
-                </label>
-                </div>
-                <textarea class="description-input" type="text" required name="description" placeholder="Description"></textarea>
-                <div class="input-group date" data-provide="datepicker">
-                    <input name="deadline" type="datetime-local">
-                </div>
-                <button class="save-btn" type="submit" name="Save">Save</button>
+                <fieldset>
+                    <div class="title">
+                        <label  th:text="#{add.task.title}" class="color--secondary">Title</label>
+                    </div>
+                    <input th:field="*{name}" class="name" type="text" required name="name" placeholder="Name">
+                    <div class="description">
+                        <label th:text="#{add.task.description}" class="color--secondary">Description</label>
+                    </div>
+                    <div>
+                        <textarea th:field="*{description}" class="description-input" type="text" required
+                                  name="description" placeholder="Description"></textarea>
+                    </div>
+                    <div class="deadline" data-provide="datepicker">
+                        <label th:text="#{add.task.deadline}" class="color--secondary">Deadline</label>
+                    </div>
+                    <div class="deadline">
+                        <input th:field="*{deadline}" name="deadline" type="datetime-local">
+                    </div>
+                </fieldset>
+                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
+                <br>
+                <button th:text="#{add.task.save.button}" class="save-btn" type="submit" name="Save">Save</button>
             </form>
         </div>
     </div>
@@ -45,5 +51,4 @@
         format: 'dd-MM-yyyy'
     });
 </script>
-
 </html>

@@ -1,5 +1,6 @@
 package a99fallen.projects.events.web.controller;
 
+import a99fallen.projects.events.exception.UserAlreadyExistsException;
 import a99fallen.projects.events.sevice.UserService;
 import a99fallen.projects.events.web.command.RegisterUserCommand;
 import lombok.RequiredArgsConstructor;
@@ -28,17 +29,21 @@ public class RegisterPageController {
 
     @PostMapping
     public String processRegister(@Valid RegisterUserCommand registerUserCommand, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+        log.debug("Dane do utworzenia użytkownika: {}", registerUserCommand);
+        if(bindingResult.hasErrors()) {
+            log.debug("Błędne dane: {}", bindingResult.getAllErrors());
             return "form";
         }
-        if(userService.checkIfUserAlreadyExists(registerUserCommand.getUsername())){
-            bindingResult.rejectValue("username", null, "Użytkownik o takiej nazwie już istnieje");
-            return "form";
-        }else {
-
-            Long id = userService.create(registerUserCommand);
-            log.debug("User added, id: {}", id);
-            return "redirect:/";
+            try{
+                Long id = userService.create(registerUserCommand);
+                log.debug("Dodano użytkownika o id: {}", id);
+                return "redirect:/";
+            } catch (UserAlreadyExistsException uaee) {
+                bindingResult.rejectValue("username", null, "Użytkownik o takiej nazwie już istnieje");
+                return "form";
+            } catch (RuntimeException re) {
+                bindingResult.rejectValue(null, null, "Wystąpił błąd");
+                return "form";
         }
     }
 

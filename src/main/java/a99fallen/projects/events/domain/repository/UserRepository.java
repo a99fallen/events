@@ -10,8 +10,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
         return "andrzej";
     }
 
-    Boolean existsUserByUsername(String username);
-
     @Query("SELECT u FROM User u WHERE u.username = ?1")
     User getAuthenticatedUser(String username);
+
+    boolean existsByUsername(String username);
 }

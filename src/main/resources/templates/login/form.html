@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/login/login.css">
-    <title>Login Page</title>
+    <title th:text="#{login.title}">Login Page</title>
 </head>
 
 <body>
@@ -20,22 +20,22 @@
     <div class="app-container login-container">
         <div class="login">
             <form class="form-login" th:action="@{/login}" th:method="post">
-                <h1 class="color--secondary title-log">Login</h1>
+                <h1 th:text="#{login.login}" class="color--secondary title-log">Login</h1>
                 <br>
                 <label><b class="color--secondary">Email
                 </b>
                 </label>
                 <input type="email" required name="username" id="username" placeholder="Email">
                 <br>
-                <label><b class="color--secondary">Password
+                <label><b th:text="#{login.password}" class="color--secondary">Password
                 </b>
                 </label>
                 <input type="password" required name="password" id="password" placeholder="Password">
                 <br><br>
-                <button class="login-btn" type="submit" name="Login">Log In</button>
+                <button th:text="#{login.submit.button}" class="login-btn" type="submit" name="Login">Log In</button>
                 <br><br>
-                <div>
-                    Don't have an account?<a class="singup" href="/register">Sign Up</a>
+                <div style="display: flex">
+                    <p th:text="#{login.question}">Don't have an account?</p><a class="singup" href="/register">Sign Up</a>
                 </div>
             </form>
         </div>

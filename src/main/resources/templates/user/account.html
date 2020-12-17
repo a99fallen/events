@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="/css/helpers.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
-    <title th:text="#{registration.success.title}">User Account</title>
+    <title th:text="#{user.account.title}">User Account</title>
 </head>
 
 <body>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <div class="container display--flex justify--center align--center">
         <div class="app-container display--flex display--row">
-            <!-- right side -->
-            <div class="right-side-wrapper">
+            <!-- left side -->
+            <div class="left-side-wrapper">
                 <div class="menu-section color--primary">
                     <div class="dropdown color--primary font-size--s" style="float:left;">
                         <div class="dropdown-btn display--flex display--row align--center">
@@ -27,7 +27,7 @@
                         <div class="dropdown-content display--flex display--row align--center" style="left:1;">
                             <div class="custom-task display--flex display--row align--center">
                                 <i class="task_icon fas fa-angle-right"></i>
-                                <p>default task</p>
+                                <p >default task</p>
                             </div>
                             <div class="custom-task display--flex display--row align--center">
                                 <i class="task_icon fas fa-angle-right"></i>
@@ -41,8 +41,8 @@
                     </div>
                 </div>
             </div>
-            <!-- left side -->
-            <div class="left-side-wrapper">
+            <!-- right side -->
+            <div class="right-side-wrapper">
                 <!-- navigation-bar -->
                 <nav class="nav-bar display--flex flex--row">
                     <div class="login-section display--flex display--row justify--between">

@@ -19,7 +19,7 @@
 
 /* right-side */
 
-.right-side-wrapper {
+.left-side-wrapper {
     width: 175px;
     height: inherit;
     border-radius: 20px 0px 0px 20px;
@@ -91,7 +91,7 @@
 
 /*navigation-bar*/
 
-.left-side-wrapper {
+.right-side-wrapper {
     width: 725px;
     height: inherit;
     border-radius: 0px 20px 20px 0px;
