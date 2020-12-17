@@ -19,7 +19,7 @@
 
 /* right-side */
 
-.left-side-wrapper {
+.right-side-wrapper {
     width: 175px;
     height: inherit;
     border-radius: 20px 0px 0px 20px;
@@ -87,11 +87,15 @@
     padding-right: 7.5px;
 }
 
+.heading{
+    padding-top: 10px;
+}
+
 /* left-side */
 
 /*navigation-bar*/
 
-.right-side-wrapper {
+.left-side-wrapper {
     width: 725px;
     height: inherit;
     border-radius: 0px 20px 20px 0px;
@@ -298,18 +302,20 @@ input {
     appearance: none;
 }
 
+.label {
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bolder;
+    color: #bdc7cd;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.add-btn-label {
+    margin-right: 15px;
+    font-weight: 600;
+}
+
 /* input::placeholder {
     color: #9fc0d5;
 }
 
-input[type=date]::-webkit-calendar-picker-indicator {
-    color: #9fc0d5;
-}
-
-input[type=date]::-webkit-clear-button {
-    color: #9fc0d5;
-}
-
-input[type=date]::-webkit-inner-spin-button {
-    color: #9fc0d5;
-} */
