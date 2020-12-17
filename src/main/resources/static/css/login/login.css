@@ -1,6 +1,4 @@
 body {
-
-    background-color: #6abadeba;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -11,61 +9,93 @@ body {
 /*    align-items: center;*/
 /*}*/
 
+/* .login-container {
+    width: 28vw;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.greetings-wrapper {
+    padding: 35px;
+    height: inherit;
+    width: 50%;
+    border-radius: 18.5px 0px 0px 18.5px;
+    color: #ffffff;
+    background-color: #adc9db;
+}
+
+.greetings-message-lx,
+.greetings-message-l {
+    padding-bottom: 40px;
+}
+
+.greetings-message-l {
+    line-height: 120%;
+}
+
+.login-wrapper {
+    padding: 50px 35px 35px 35px;
+    height: inherit;
+    width: 50%;
+}
+
 .login-btn {
-    background-image: linear-gradient(120deg, #d6e4ed 0%, #c8dbe7 100%);
-    width: 15vw;
-    height: 5vh;
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
     border: none;
-    border-radius: 17px;
-    padding-left: 7px;
-
-
+    border-radius: 35px;
+    box-shadow: -4px -4px 15px #FFF, 4px 4px 15px #9fc0d5;
+    background-color: #ffffff;
 }
 
 .title-log {
-    font-size: 4vh;
+    margin-bottom: 10px;
     text-align: center
 }
 
-.singup {
-    background-image: linear-gradient(120deg, #d6e4ed 0%, #c8dbe7 100%);
-    color: black;
-    padding: 4px 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: none;
+.form-login {
+    padding: 10px 30px 0px 30px;
+    width: 380px;
+    height: 250px;
     border-radius: 10px;
-    font-size: small;
+    background-color: #e5edf3;
+    box-shadow: 0px 5px 10px 0px #bdc7cd;
 }
 
-.login-container {
-    width: 28vw;
-    height: 55vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* sign-up-section */
+
+.sign-up-wrapper {
+    margin-top: 20px;
 }
-.form-login{
-    width: 28vw;
-    height: 55vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+.sign-up-btn {
+    height: 50px;
+    width: 150px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 35px;
+    box-shadow: -4px -4px 15px #FFF, 4px 4px 15px #bdc7cd;
+    border-radius: 35px;
 }
-h2 {
-    text-align: center;
-    color: #277582;
-    padding: 20px;
+
+.sign-up-btn_icon {
+    padding-left: 10px;
 }
 
 label {
-    color: #000000;
-    font-size: 17px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    color: #bdc7cd;
+    text-shadow: 1px 1px 0px #ffffff;
 }
 
 #username {
-    width: 20vw;
+    width: 320px;
     height: 5vh;
     border-radius: 3px;
     padding-left: 8px;
@@ -73,15 +103,10 @@ label {
 }
 
 #password {
-    width: 20vw;
+    width: 320px;
     height: 5vh;
     border-radius: 3px;
     padding-left: 8px;
     border-color: #9ba4b4;
 
-}
-
-
-a {
-    margin-left: 5px;
 }
