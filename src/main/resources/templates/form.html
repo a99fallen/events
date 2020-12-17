@@ -2,32 +2,53 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/login/login.css">
     <title th:text="Rejestracja">Rejestracja</title>
 </head>
 <body>
-    <div>
-        <form th:action="@{/register}" th:method="post"  th:object="${registerUserCommand}">
-            <fieldset>
-                <div>
-                    <label>Nazwa użytkownika:
-                        <input th:field="*{username}" type="email"/>
-                    </label>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="container display--flex justify--center align--center">
+        <div class="app-container login-container">
 
-                </div>
-                <div>
-                    <label>Hasło:
-                        <input th:field="*{password}" type="password"/>
-                    </label>
+            <form class="form-login" th:action="@{/register}" th:method="post"  th:object="${registerUserCommand}">
+                <h1 class="color--secondary title-log">Registration</h1>
+                    <br>
 
-                </div>
-            </fieldset>
-            <fieldset>
-                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
-                <div>
-                    <button type="submit">Zarejestruj</button>
-                </div>
-            </fieldset>
-        </form>
+                        <div>
+                            <label><b class="color--secondary">Email:
+                            </b>
+                                <br>
+                                <input th:field="*{username}" type="email"/>
+                            </label>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label><b class="color--secondary">Password:
+                            </b>
+                                <br>
+                                <input th:field="*{password}" type="password"/>
+                            </label>
+                        </div>
+                    <br>
+
+
+                            <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
+                        <div>
+                            <button class="login-btn" type="submit">SUBMIT</button>
+                        <br>
+                        </div>
+            </form>
+
+        </div>
     </div>
+
 </body>
 </html>
