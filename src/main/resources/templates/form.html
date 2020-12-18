@@ -37,14 +37,13 @@
                 <input th:field="*{username}" type="email" id="username" placeholder="Email" />
                 <div class="label-wrapper"><label class="password-label">Password</label></div>
                 <input th:field="*{password}" type="password" id="password" placeholder="Password" />
-                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}">
+                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"></div>
                     <div class="display--flex justify--center align--center">
                         <button class="login-btn display--flex display--row justify--center align--center" type="submit">
                             <p class="font-size">Submit</p>
                             <i class="register-btn_icon fas fa-paper-plane"></i>
                         </button>
                     </div>
-                </div>
             </form>
         </div>
     </div>
