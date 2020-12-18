@@ -1,0 +1,32 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.registration-container {
+    width: 450px;
+    height: 600px;
+    padding: 80px 35px 35px 35px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
+}
+
+.title-reg {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-login {
+    padding: 10px 30px 0px 30px;
+}
+
+.label-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.register-btn_icon {
+    margin-left: 10px;
+    font-size: 20px;
+}

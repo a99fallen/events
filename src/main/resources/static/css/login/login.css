@@ -104,14 +104,14 @@ button:focus {
     color: #bdc7cd;
 }
 
-.language-btn-wrapper{
+.language-btn-wrapper {
     position: fixed;
     width: 100vw;
 }
 
 .PL-btn-wrapper,
 .EN-btn-wrapper,
-.i-btn-wrapper{
+.i-btn-wrapper {
     width: 45px;
     height: 45px;
     border-radius: 35px;
@@ -122,6 +122,6 @@ button:focus {
     cursor: pointer;
 }
 
-.i-btn{
+.i-btn {
     font-size: 17.5px;
 }

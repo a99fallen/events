@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
 
@@ -7,45 +8,45 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/helpers.css">
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/login/login.css">
+    <link rel="stylesheet" href="/css/register/register.css">
+
     <title th:text="Rejestracja">Rejestracja</title>
 </head>
+
 <body>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
+        <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
+            <p>PL</p>
+        </div>
+        <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
+            <p>EN</p>
+        </div>
+        <div class="i-btn-wrapper display--flex justify--center align--center">
+            <i class="i-btn fas fa-info"></i>
+        </div>
+    </div>
     <div class="container display--flex justify--center align--center">
-        <div class="app-container login-container">
-
-            <form class="form-login" th:action="@{/register}" th:method="post"  th:object="${registerUserCommand}">
-                <h1 class="color--secondary title-log">Registration</h1>
-                    <br>
-
-                        <div>
-                            <label><b class="color--secondary">Email:
-                            </b>
-                                <br>
-                                <input th:field="*{username}" type="email"/>
-                            </label>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label><b class="color--secondary">Password:
-                            </b>
-                                <br>
-                                <input th:field="*{password}" type="password"/>
-                            </label>
-                        </div>
-                    <br>
-                            <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
-                        <div>
-                            <button class="login-btn" type="submit">SUBMIT</button>
-                        <br>
-                        </div>
+        <div class="registration-container">
+            <h1 class="title-reg color--primary font-size--l">Registration</h1>
+            <form class="form-login" th:action="@{/register}" th:method="post" th:object="${registerUserCommand}">
+                <div class="label-wrapper"><label>Email</label></div>
+                <input th:field="*{username}" type="email" id="username" placeholder="Email" />
+                <div class="label-wrapper"><label class="password-label">Password</label></div>
+                <input th:field="*{password}" type="password" id="password" placeholder="Password" />
+                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}">
+                    <div class="display--flex justify--center align--center">
+                        <button class="login-btn display--flex display--row justify--center align--center" type="submit">
+                            <p class="font-size">Submit</p>
+                            <i class="register-btn_icon fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-
 </body>
 </html>
