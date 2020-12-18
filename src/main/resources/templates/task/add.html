@@ -35,7 +35,7 @@
                         <label th:text="#{add.task.deadline}" class="color--secondary">Deadline</label>
                     </div>
                     <div class="deadline">
-                        <input th:field="*{deadline}" name="deadline" type="datetime-local">
+                        <input th:field="*{deadline}" name="deadline" type="date">
                     </div>
                 </fieldset>
                 <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
@@ -46,9 +46,9 @@
     </div>
 </div>
 </body>
-<script>
-    $('#date').datepicker({
-        format: 'dd-MM-yyyy'
-    });
-</script>
+<!--<script>-->
+<!--    $('#date').datepicker({-->
+<!--        format: 'dd-MM-yyyy'-->
+<!--    });-->
+<!--</script>-->
 </html>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/login/login.css">
 
-    <title th:text="#{user.register.title}">Rejestracja</title>
+    <title th:text="#{user.register.title}">Register</title>
 </head>
 <body>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -21,14 +21,14 @@
             <h1 class="color--secondary title-log">Registration</h1>
             <br>
                 <div>
-                    <label><b class="color--secondary"  th:text="#{user.register.username}">Nazwa użytkownika:</b>
+                    <label><b class="color--secondary"  th:text="#{user.register.username}">Username:</b>
                         <br>
                         <input th:field="*{username}" type="email"/>
                     </label>
                 </div>
                 <br>
                 <div>
-                    <label><b class="color--secondary" th:text="#{user.register.password}">Hasło:</b>
+                    <label><b class="color--secondary" th:text="#{user.register.password}">Password:</b>
                         <br>
                         <input th:field="*{password}" type="password"/>
                     </label>
@@ -36,7 +36,7 @@
             <br>
                 <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
                 <div>
-                    <button th:text="#{user.register.save.button}" type="submit">Zarejestruj</button>
+                    <button th:text="#{user.register.save.button}" type="submit">Submit</button>
                 </div>
         </form>
     </div>
