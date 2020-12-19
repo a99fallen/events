@@ -68,6 +68,7 @@ textarea:active,
 textarea:focus {
     outline: none;
     border: none;
+    outline: none;
     color: #bdc7cd;
 }
 
