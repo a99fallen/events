@@ -10,6 +10,6 @@ import javax.validation.constraints.Size;
 public class RegisterUserCommand {
     @Email @NotBlank
     private String username;
-    @NotBlank @Size(min = 4,max = 24)
+    @NotBlank @Size(min = 4, max = 24)
     private String password;
 }

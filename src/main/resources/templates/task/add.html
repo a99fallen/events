@@ -5,45 +5,54 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
-    <link rel="stylesheet" href="/static/css/reset.css">
-    <link rel="stylesheet" href="/static/css/helpers.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="stylesheet" href="/static/css/typography.css">
-    <link rel="stylesheet" href="/static/css/login/login.css">
-    <link rel="stylesheet" href="/static/css/register/register.css">
-    <link rel="stylesheet" href="/static/css/task/task.css">
-    <title th:text="#{task.list.title}">Add task</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/css/task/task.css">
+    <link rel="stylesheet" href="/css/login/login.css">
+    <title th:text="#{add.page.title}">Add task</title>
 </head>
 
 <body>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
         <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
-            <p>PL</p>
+           <a href="?lang=pl">PL</a>
         </div>
         <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
-            <p>EN</p>
+            <a href="?lang=en">EN</a>
         </div>
         <div class="i-btn-wrapper display--flex justify--center align--center">
             <i class="i-btn fas fa-info"></i>
         </div>
     </div>
     <div class="container display--flex justify--center align--center">
-        <div class="add-task-container">
+        <div class="app-container addtask-container">
             <h1 class="title-add color--primary font-size--l">Add New Task</h1>
             <form class="form-login" th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
-                <div class="label-wrapper"><label>Title</label></div>
-                <input type="text" required name="name" id="name-input" placeholder="Task Name">
-                <div class="label-wrapper"><label>Description</label></div>
-                <textarea type="text" required name="description" id="description-input"
-                    placeholder="Description"></textarea>
-                <div class="label-wrapper"><label>Estimated completion date</label></div>
+                <div class="label-wrapper">
+                  <label th:text="#{add.task.title}" class="color--secondary">Title
+                  </label>
+              </div>
+                <input th:field="*{name}" type="text" required name="name" id="name-input" th:placeholder="#{add.task.name}">
+                <div class="label-wrapper">
+                  <label th:text="#{add.task.description}">Description
+                  </label>
+              </div>
+                <textarea th:field="*{description}" type="text" required name="description" id="description-input"
+                     th:placeholder="#{add.task.desc}"></textarea>
+                <div class="label-wrapper" data-provide="datepicker">
+                  <label th:text="#{add.task.deadline}">Estimated completion date
+                  </label>
+              </div>
                 <div class="input-group date" data-provide="datepicker">
-                    <input class="deadline" name="deadline" type="datetime-local">
+                    <input th:field="*{deadline}" class="deadline" name="deadline" type="date">
                 </div>
-
+<!-- <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/> -->
                 <div class="display--flex justify--center align--center">
-                    <button class="login-btn display--flex display--row justify--center align--center" name="save"
+                    <buttonth:text="#{add.task.save.button}"  class="login-btn display--flex display--row justify--center align--center" name="save"
                         type="submit">
                         <p class="font-size">Save</p>
                     </button>
@@ -52,10 +61,4 @@
         </div>
     </div>
 </body>
-<script>
-    $('#date').datepicker({
-        format: 'dd-MM-yyyy'
-    });
-</script>
-
 </html>

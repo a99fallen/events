@@ -24,7 +24,6 @@ public class AddNewTaskController {
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        model.addAttribute("userTasks", taskService.findUserTasks());
         return "/task/add";
     }
 
@@ -33,13 +32,13 @@ public class AddNewTaskController {
         log.debug("Dane do utworzenia zadania: {}", createTaskCommand);
         if(bindings.hasErrors()) {
             log.debug("Dane zawierają błędy: {}", bindings.getAllErrors());
-            return "addd";
+            return "add";
         }
 
         try {
             taskService.add(createTaskCommand);
             log.debug("Utworzono zadanie");
-            return "redirect:/task/tasks";
+            return "redirect:/account";
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd podczas tworzenia zadania", re);

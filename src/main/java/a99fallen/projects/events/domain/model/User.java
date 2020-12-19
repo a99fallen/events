@@ -19,10 +19,10 @@ public class User implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, name = "username")
+    @Column(nullable = false, unique = true)
     private String username;
     private String password;
-//    private Boolean active = Boolean.FALSE;
+    private Boolean active = Boolean.FALSE;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(

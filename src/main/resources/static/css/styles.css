@@ -119,12 +119,14 @@
     margin-top: 20px;
 }
 
-.profile-icon {
+.operation-icons {
     margin-top: 12.5px;
     font-size: 35px;
     color: #bdc7cd;
     cursor: pointer;
+    justify-content: space-around
 }
+
 
 /* main section */
 
@@ -189,10 +191,12 @@
 .task-name {
     margin-bottom: 10px;
     height: 35px;
+    background-color: #FFFFFF;
 }
 
 .task-description {
     height: 355px;
+    background-color: #FFFFFF;
 }
 
 .date-created,
@@ -203,6 +207,10 @@
 
 .date-created {
     margin-bottom: 10px;
+}
+
+.date-deadline {
+    background-color: #FFFFFF;
 }
 
 /* action-buttons-section */
@@ -320,3 +328,27 @@ input {
     color: #9fc0d5;
 }
 
+ */
+
+.modal__container {
+    position: relative;
+    visibility: hidden;
+    z-index: 10;
+    width: 320px;
+    height: 450px;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f1f6f9;
+    /*box-shadow: 2 xp 4px 5px 0px #224284ad;*/
+
+    animation-name: slideLeft; /* było slideUp*/
+    animation-duration: 1000ms;
+    animation-direction: initial;
+    animation-fill-mode: forwards;
+}
+
+.account-task-button {
+    border: 0px;
+    width: 300px;
+
+}
