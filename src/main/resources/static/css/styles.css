@@ -49,6 +49,11 @@
     transition: all 0.2s ease-in-out;
 }
 
+.label-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 a,
 a:visited,
 a:focus {
@@ -58,16 +63,21 @@ a:focus {
 
 button,
 button:visited,
-button:focus {
+button:focus,
+textarea:active,
+textarea:focus {
     outline: none;
     border: none;
     color: #bdc7cd;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
+    font-size: 14px;
     color: #bdc7cd;
 }
 
+textarea,
 input,
 input:active,
 input:focus {
@@ -75,11 +85,28 @@ input:focus {
     padding-left: 10px;
     padding-right: 5px;
     color: #bdc7cd;
-    background-color: #ffffff;
     box-shadow: inset 1px 1px 2px #bdc7cd, inset -1px -1px 2px #ffffff;
     transition: all 0.2s ease-in-out;
     outline: none;
     appearance: none;
+}
+
+input,
+textarea {
+    background-color: #e5edf3;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+    background-color: #ffffff;
+}
+
+textarea {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 label {
