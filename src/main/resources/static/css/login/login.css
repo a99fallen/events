@@ -70,17 +70,9 @@
 }
 
 .sign-up-btn_icon {
+    font-size: 17.5px;
     padding-left: 10px;
 }
-
-/* label {
-    text-align: left;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: bolder;
-    color: #bdc7cd;
-    text-shadow: 1px 1px 0px #ffffff;
-} */
 
 #username,
 #password {
