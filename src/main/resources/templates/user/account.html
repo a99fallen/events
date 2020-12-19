@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,120 +11,114 @@
     <link rel="stylesheet" href="/css/user-account/user-account.css">
     <title th:text="#{user.account.title}">User Account</title>
 </head>
-
 <body>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
-        <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
-            <a href="?lang=pl">PL</a>
-        </div>
-        <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
-            <a href="?lang=en">EN</a>
-        </div>
-        <div class="i-btn-wrapper display--flex justify--center align--center">
-            <i class="i-btn fas fa-info"></i>
-        </div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="language-btn-wrapper display--flex align--end justify--end color--primary">
+    <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
+        <a href="?lang=pl">PL</a>
     </div>
-    <div class="container display--flex justify--center align--center">
-        <!--    <div class="modal__container">-->
-        <!--        <p>HELLO!</p>-->
-        <!--    </div>-->
-        <div class="app-container display--flex display--row">
-            <!-- left side -->
-            <div class="right-side-wrapper">
-                <div class="menu-section color--primary">
-                    <div class="dropdown color--primary font-size--s" style="float:left;">
-                        <div class="dropdown-btn display--flex display--row align--center">
-                            <i class="menu_icon far fa-list-alt"></i>
-                            <h1 th:text="#{user.account.tasks}" class="color--primary font-size--m">Tasks</h1>
-                        </div>
-                        <div class="dropdown-content display--flex display--row align--center" style="left:1;">
-                            <div th:each="task:${userTasks}"
-                                class="custom-task display--flex display--row align--center">
-                                <a th:href="@{/account/{name}(name = ${task.name})}" th:text="${task.name}">
-                                    <div class="account-task-button" type="submit"></div>
-                                </a>
-                            </div>
+    <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
+        <a href="?lang=en">EN</a>
+    </div>
+    <div class="i-btn-wrapper display--flex justify--center align--center">
+        <i class="i-btn fas fa-info"></i>
+    </div>
+</div>
+<div class="container display--flex justify--center align--center">
+    <div class="app-container display--flex display--row">
+        <!-- left side -->
+        <div class="right-side-wrapper">
+            <div class="menu-section color--primary">
+                <div class="dropdown color--primary font-size--s" style="float:left;">
+                    <div class="dropdown-btn display--flex display--row align--center">
+                        <i class="menu_icon far fa-list-alt"></i>
+                        <h1 th:text="#{user.account.tasks}" class="color--primary font-size--m">Tasks</h1>
+                    </div>
+                    <div class="dropdown-content display--flex display--row align--center" style="left:1;">
+                        <div th:each="task:${userTasks}"
+                             class="custom-task display--flex display--row align--center">
+                            <a th:href="@{/account/{name}(name = ${task.name})}" th:text="${task.name}">
+                                <div class="account-task-button" type="submit"></div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- right side -->
-            <div class="left-side-wrapper">
-                <!-- navigation-bar -->
-                <nav class="nav-bar display--flex flex--row">
-                    <div class="login-section display--flex display--row justify--between">
-                        <h1 th:text="#{user.account.heading}" class="heading color--primary font-size--m">Taskboard</h1>
-                        <div class="operation-icons">
-                            <p placeholder="username"></p>
-                            <a href="/account">
-                                <i class="far fa-user-circle"></i>
-                            </a>
-                            <a th:href="@{/logout}">
-                                <i class="fas fa-arrow-circle-right"></i>
-                            </a>
-                            <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
-                        </div>
+        </div>
+        <!-- right side -->
+        <div class="left-side-wrapper">
+            <!-- navigation-bar -->
+            <nav class="nav-bar display--flex flex--row">
+                <div class="login-section display--flex display--row justify--between">
+                    <h1 th:text="#{user.account.heading}" class="heading color--primary font-size--m">Taskboard</h1>
+                    <div class="operation-icons">
+                        <p placeholder="username"></p>
+                        <a href="/account">
+                            <i class="far fa-user-circle"></i>
+                        </a>
+                        <a th:href="@{/logout}">
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                        <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
                     </div>
-                </nav>
-                <!-- main section -->
-                <main class="main-wrapper display--flex flex--row">
-                    <div class="board-section">
-                        <form th:action="@{/account}" th:method="post" th:object="${userTask}">
-                            <div class="task-view">
-                                <div class="single-task-wrapper display--flex display--row">
-                                    <div class="left-task-section">
-                                        <p th:text="#{user.account.main.taskName}" class="task-label">Task name</p>
-                                        <label>
-                                            <input class="task-name" type="text" th:field="*{name}" name="name">
-                                        </label>
-                                        <p th:text="#{user.account.main.taskDescription}" class="task-label">Task
-                                            description</p>
-                                        <label>
-                                            <input class="task-description" type="text" th:field="*{description}"
-                                                name="description">
-                                        </label>
-                                    </div>
-                                    <div class="right-task-section">
-                                        <p th:text="#{user.account.main.taskCreatedOn}" class="task-label">Task creation
-                                            date</p>
-                                        <input class="date-created" th:field="*{createdOn}" type="date" readonly>
-                                        <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated
-                                            completion
-                                            date</p>
-                                        <input class="date-deadline" th:field="*{deadline}" type="date">
-
-                                        <!-- action-buttons-section -->
-                                        <div class="action-btn-wrapper display--flex justify--end align--end">
-                                            <button type="submit" hidden="hidden"
+                </div>
+            </nav>
+            <!-- main section -->
+            <main class="main-wrapper display--flex flex--row">
+                <div class="board-section">
+                    <form th:action="@{/account}" th:method="post" th:object="${userTask}">
+                        <div class="task-view">
+                            <div class="single-task-wrapper display--flex display--row">
+                                <div class="left-task-section">
+                                    <p th:text="#{user.account.main.taskName}" class="task-label">Task name</p>
+                                    <label>
+                                        <input class="task-name" type="text" th:field="*{name}" name="name">
+                                    </label>
+                                    <p th:text="#{user.account.main.taskDescription}" class="task-label">Task
+                                        description</p>
+                                    <label>
+                                        <input class="task-description" type="text" th:field="*{description}"
+                                               name="description">
+                                    </label>
+                                </div>
+                                <div class="right-task-section">
+                                    <p th:text="#{user.account.main.taskCreatedOn}" class="task-label">Task creation
+                                        date</p>
+                                    <input class="date-created" th:field="*{createdOn}" type="date" readonly>
+                                    <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated
+                                        completion
+                                        date</p>
+                                    <input class="date-deadline" th:field="*{deadline}" type="date">
+                                    <!-- action-buttons-section -->
+                                    <div class="action-btn-wrapper display--flex justify--end align--end">
+                                        <button type="submit" hidden="hidden"
                                                 class="save-btn-wrapper display--flex justify--center align--center color--primary">
-                                                <i class="save-btn_icon fas fa-save"></i>
-                                            </button>
-                                            <button formaction="deleteTask" type="submit" hidden="hidden"
+                                            <i class="save-btn_icon fas fa-save"></i>
+                                        </button>
+                                        <button formaction="deleteTask" type="submit" hidden="hidden"
                                                 class="trash-btn-wrapper display--flex justify--center align--center color--primary">
-                                                <i class="trash-btn_icon fas fa-trash"></i>
-                                            </button>
-                                        </div>
+                                            <i class="trash-btn_icon fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                        <!-- add-button-section -->
-                        <div class="add-btn-section display--flex align--center justify--between">
-                            <a href="/task/add">
-                                <div class="add-btn-wrapper display--flex justify--center align--center">
-                                    <p th:text="#{user.account.addButton}" class="add-btn_label">Add new task</p>
-                                    <i class="add-btn_icon fas fa-plus"></i>
-                                </div>
-                            </a>
-                            <div class="info-btn-wrapper display--flex justify--center align--center"><i
-                                    class="info-btn_icon fas fa-info"></i></div>
                         </div>
+                    </form>
+                    <!-- add-button-section -->
+                    <div class="add-btn-section display--flex align--center justify--between">
+                        <a href="/task/add">
+                            <div class="add-btn-wrapper display--flex justify--center align--center">
+                                <p th:text="#{user.account.addButton}" class="add-btn_label">Add new task</p>
+                                <i class="add-btn_icon fas fa-plus"></i>
+                            </div>
+                        </a>
+                        <div class="info-btn-wrapper display--flex justify--center align--center"><i
+                                class="info-btn_icon fas fa-info"></i></div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
     </div>
+</div>
 </body>
-
 </html>

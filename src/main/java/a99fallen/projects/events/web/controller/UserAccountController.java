@@ -1,7 +1,5 @@
 package a99fallen.projects.events.web.controller;
 
-import a99fallen.projects.events.domain.model.Task;
-import a99fallen.projects.events.domain.model.User;
 import a99fallen.projects.events.sevice.TaskService;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
 import a99fallen.projects.events.web.command.EditTaskCommand;
@@ -44,11 +42,10 @@ public class UserAccountController {
         return "user/account";
     }
 
-
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "/user/account";
+        return "user/account";
     }
 
     @PostMapping("/account")
@@ -64,6 +61,7 @@ public class UserAccountController {
         }
         return "redirect:/account";
     }
+
     @PostMapping("account/deleteTask")
         public String deleteTask(@Valid EditTaskCommand editTaskCommand){
             taskService.deleteTask(selectedTaskName);
