@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -9,10 +8,9 @@
     <link rel="stylesheet" href="/css/helpers.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
-    <link rel="stylesheet" href="/css/login/login.css">
+    <link rel="stylesheet" href="/css/user-account/user-account.css">
     <title th:text="#{user.account.title}">User Account</title>
 </head>
-
 <body>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
@@ -27,9 +25,6 @@
     </div>
 </div>
 <div class="container display--flex justify--center align--center">
-    <!--    <div class="modal__container">-->
-    <!--        <p>HELLO!</p>-->
-    <!--    </div>-->
     <div class="app-container display--flex display--row">
         <!-- left side -->
         <div class="right-side-wrapper">
@@ -40,12 +35,10 @@
                         <h1 th:text="#{user.account.tasks}" class="color--primary font-size--m">Tasks</h1>
                     </div>
                     <div class="dropdown-content display--flex display--row align--center" style="left:1;">
-                        <div th:each="task:${userTasks}" class="custom-task display--flex display--row align--center">
+                        <div th:each="task:${userTasks}"
+                             class="custom-task display--flex display--row align--center">
                             <a th:href="@{/account/{name}(name = ${task.name})}" th:text="${task.name}">
-                                <div class="account-task-button" type="submit">
-                                    <p>About</p>
-                                    <i class="task_icon fas fa-angle-right"></i>
-                                </div>
+                                <div class="account-task-button" type="submit"></div>
                             </a>
                         </div>
                     </div>
@@ -64,7 +57,7 @@
                             <i class="far fa-user-circle"></i>
                         </a>
                         <a th:href="@{/logout}">
-                            <i class="fas fa-door-open"></i>
+                            <i class="fas fa-arrow-circle-right"></i>
                         </a>
                         <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
                     </div>
@@ -74,7 +67,7 @@
             <main class="main-wrapper display--flex flex--row">
                 <div class="board-section">
                     <form th:action="@{/account}" th:method="post" th:object="${userTask}">
-                        <div class="task-view display--flex">
+                        <div class="task-view">
                             <div class="single-task-wrapper display--flex display--row">
                                 <div class="left-task-section">
                                     <p th:text="#{user.account.main.taskName}" class="task-label">Task name</p>
@@ -96,7 +89,6 @@
                                         completion
                                         date</p>
                                     <input class="date-deadline" th:field="*{deadline}" type="date">
-
                                     <!-- action-buttons-section -->
                                     <div class="action-btn-wrapper display--flex justify--end align--end">
                                         <button type="submit" hidden="hidden"
