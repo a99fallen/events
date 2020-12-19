@@ -15,9 +15,9 @@
 <body>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <div class="container display--flex justify--center align--center">
-<!--    <div class="modal__container">-->
-<!--        <p>HELLO!</p>-->
-<!--    </div>-->
+    <div class="modal__container">
+        <p>HELLO!</p>
+    </div>
     <div class="app-container display--flex display--row">
         <!-- left side -->
         <div class="right-side-wrapper">
@@ -46,8 +46,16 @@
                 <nav class="nav-bar display--flex flex--row">
                     <div class="login-section display--flex display--row justify--between">
                         <h1 th:text="#{user.account.heading}" class="heading color--primary font-size--m">Taskboard</h1>
-                        <i class="profile-icon far fa-user-circle"></i>
+                        <div class="operation-icons">
+                            <p placeholder="username"></p>
+                            <a href="/account">
+                                <i class="far fa-user-circle"></i>
+                            </a>
+                            <a href="<c:url value='/logout' />">
+                                <i class="fas fa-door-open"></i>
+                            </a>
                         <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
+                        </div>
                     </div>
                 </nav>
                 <!-- main section -->
@@ -69,7 +77,7 @@
                                 </div>
                                 <div class="right-task-section">
                                     <p th:text="#{user.account.main.taskCreatedOn}" class="task-label">Task creation date</p>
-                                    <input class="date-created" type="date">
+                                    <input class="date-created" type="date" readonly>
                                     <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated completion date</p>
                                     <input class="date-deadline" type="date">
                                     <!-- action-buttons-section -->

@@ -119,12 +119,14 @@
     margin-top: 20px;
 }
 
-.profile-icon {
+.operation-icons {
     margin-top: 12.5px;
     font-size: 35px;
     color: #bdc7cd;
     cursor: pointer;
+    justify-content: space-around
 }
+
 
 /* main section */
 
@@ -189,10 +191,12 @@
 .task-name {
     margin-bottom: 10px;
     height: 35px;
+    color: #FFFFFF;
 }
 
 .task-description {
     height: 355px;
+    color: #FFFFFF;
 }
 
 .date-created,
@@ -203,6 +207,10 @@
 
 .date-created {
     margin-bottom: 10px;
+}
+
+.date-deadline {
+    color: #FFFFFF;
 }
 
 /* action-buttons-section */

@@ -23,13 +23,13 @@
                     <div class="title">
                         <label  th:text="#{add.task.title}" class="color--secondary">Title</label>
                     </div>
-                    <input th:field="*{name}" class="name" type="text" required name="name" placeholder="Name">
+                    <input th:field="*{name}" class="name" type="text" required name="name" th:placeholder="#{add.task.name}">
                     <div class="description">
                         <label th:text="#{add.task.description}" class="color--secondary">Description</label>
                     </div>
                     <div>
                         <textarea th:field="*{description}" class="description-input" type="text" required
-                                  name="description" placeholder="Description"></textarea>
+                                  name="description" th:placeholder="#{add.task.desc}"></textarea>
                     </div>
                     <div class="deadline" data-provide="datepicker">
                         <label th:text="#{add.task.deadline}" class="color--secondary">Deadline</label>
