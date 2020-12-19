@@ -352,3 +352,16 @@ input {
     width: 300px;
 
 }
+
+.PL-btn-wrapper,
+.EN-btn-wrapper,
+.i-btn-wrapper {
+    width: 45px;
+    height: 45px;
+    border-radius: 35px;
+    box-shadow: -4px -4px 15px #FFF, 4px 4px 15px #9fc0d5;
+    margin-top: 15px;
+    margin-right: 15px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
