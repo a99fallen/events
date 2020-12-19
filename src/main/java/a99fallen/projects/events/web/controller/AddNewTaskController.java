@@ -24,7 +24,7 @@ public class AddNewTaskController {
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "/task/add";
+        return "task/add";
     }
 
     @PostMapping("/add")
@@ -34,7 +34,6 @@ public class AddNewTaskController {
             log.debug("Dane zawierają błędy: {}", bindings.getAllErrors());
             return "add";
         }
-
         try {
             taskService.add(createTaskCommand);
             log.debug("Utworzono zadanie");

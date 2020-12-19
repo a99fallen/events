@@ -46,5 +46,4 @@ public class RegisterPageController {
                 return "form";
         }
     }
-
 }
