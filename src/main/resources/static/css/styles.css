@@ -27,6 +27,7 @@ a:focus {
 button,
 button:visited,
 button:focus {
+    outline: none;
     border: none;
     color: #bdc7cd;
 }
