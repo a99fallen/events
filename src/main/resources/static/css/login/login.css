@@ -20,6 +20,11 @@ body {
     line-height: 120%;
 }
 
+.greetings-message-s {
+    padding-bottom: 20px;
+    line-height: 80%;
+}
+
 .login-wrapper {
     padding: 80px 35px 35px 35px;
     height: inherit;
