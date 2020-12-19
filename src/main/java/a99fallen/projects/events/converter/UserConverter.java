@@ -15,8 +15,8 @@ public class UserConverter {
     public User from(RegisterUserCommand registerUserCommand){
         return User.builder()
                 .username(registerUserCommand.getUsername())
-                .password(passwordEncoder.encode(registerUserCommand.getPassword()))
-                .roles(Set.of("ROLE_USER"))
+                .password(registerUserCommand.getPassword())
+//                .roles(Set.of("ROLE_USER")) ma to robić Service
                 .build();
     }
 }
