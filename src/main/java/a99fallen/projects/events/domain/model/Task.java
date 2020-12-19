@@ -4,8 +4,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,16 +20,14 @@ public class Task {
     private Long id;
 
     @Column(nullable = false)
-    @Size(min = 3, max = 45)
     private String name;
     @Column(nullable = false)
-    @Size(min = 3, max = 1023)
     private String description;
     @Column(name = "created_on")
-    @DateTimeFormat (pattern = "yyyy-MM-dd : HH:mm")
-    private LocalDateTime createdOn;
-    @DateTimeFormat (pattern = "yyyy-MM-dd : HH:mm")
-    private LocalDateTime deadline;
+    @DateTimeFormat (pattern = "yyyy-MM-dd")
+    private LocalDate createdOn;
+    @DateTimeFormat (pattern = "yyyy-MM-dd")
+    private LocalDate deadline;
 
     @ManyToMany (mappedBy = "tasks")
     private Set<User> users = new HashSet();

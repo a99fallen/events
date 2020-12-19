@@ -20,8 +20,8 @@ import javax.validation.Valid;
 @Slf4j @RequiredArgsConstructor
 @RequestMapping
 public class UserAccountController {
-    private final TaskService taskService;
 
+    private final TaskService taskService;
     private String selectedTaskName;
 
     @GetMapping("/account")
@@ -48,7 +48,7 @@ public class UserAccountController {
     @GetMapping("/add")
     public String getAddTaskPage(Model model) {
         model.addAttribute(new CreateTaskCommand());
-        return "/task/add";
+        return "/user/account";
     }
 
     @PostMapping("/account")
