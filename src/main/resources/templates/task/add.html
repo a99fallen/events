@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/helpers.css">
     <link rel="stylesheet" href="/css/styles.css">
@@ -15,53 +16,49 @@
 </head>
 
 <body>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<div class="language-btn-wrapper display--flex align--end justify--end color--primary">
-    <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
-        <a href="?lang=pl">PL</a>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
+        <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
+           <a href="?lang=pl">PL</a>
+        </div>
+        <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
+            <a href="?lang=en">EN</a>
+        </div>
+        <div class="i-btn-wrapper display--flex justify--center align--center">
+            <i class="i-btn fas fa-info"></i>
+        </div>
     </div>
-    <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
-        <a href="?lang=en">EN</a>
-    </div>
-    <div class="i-btn-wrapper display--flex justify--center align--center">
-        <i class="i-btn fas fa-info"></i>
-    </div>
-</div>
-<div class="container display--flex justify--center align--center">
-    <div class="app-container addtask-container">
-        <div class="div-addtask">
-            <form class="form-addtask" th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
-
-                <fieldset>
-                    <div class="title">
-                        <label  th:text="#{add.task.title}" class="color--secondary">Title</label>
-                    </div>
-                    <input th:field="*{name}" class="name" type="text" required name="name" th:placeholder="#{add.task.name}">
-                    <div class="description">
-                        <label th:text="#{add.task.description}" class="color--secondary">Description</label>
-                    </div>
-                    <div>
-                        <textarea th:field="*{description}" class="description-input" type="text" required
-                                  name="description" th:placeholder="#{add.task.desc}"></textarea>
-                    </div>
-                    <div class="deadline" data-provide="datepicker">
-                        <label th:text="#{add.task.deadline}" class="color--secondary">Deadline</label>
-                    </div>
-                    <div class="deadline">
-                        <input th:field="*{deadline}" name="deadline" type="date">
-                    </div>
-                </fieldset>
-                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/>
-                <br>
-                <button th:text="#{add.task.save.button}" class="save-btn" type="submit" name="Save">Save</button>
+    <div class="container display--flex justify--center align--center">
+        <div class="app-container addtask-container">
+            <h1 class="title-add color--primary font-size--l">Add New Task</h1>
+            <form class="form-login" th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
+                <div class="label-wrapper">
+                  <label th:text="#{add.task.title}" class="color--secondary">Title
+                  </label>
+              </div>
+                <input th:field="*{name}" type="text" required name="name" id="name-input" th:placeholder="#{add.task.name}">
+                <div class="label-wrapper">
+                  <label th:text="#{add.task.description}">Description
+                  </label>
+              </div>
+                <textarea th:field="*{description}" type="text" required name="description" id="description-input"
+                     th:placeholder="#{add.task.desc}"></textarea>
+                <div class="label-wrapper" data-provide="datepicker">
+                  <label th:text="#{add.task.deadline}">Estimated completion date
+                  </label>
+              </div>
+                <div class="input-group date" data-provide="datepicker">
+                    <input th:field="*{deadline}" class="deadline" name="deadline" type="date">
+                </div>
+<!-- <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/> -->
+                <div class="display--flex justify--center align--center">
+                    <buttonth:text="#{add.task.save.button}"  class="login-btn display--flex display--row justify--center align--center" name="save"
+                        type="submit">
+                        <p class="font-size">Save</p>
+                    </button>
+                </div>
             </form>
         </div>
     </div>
-</div>
 </body>
-<!--<script>-->
-<!--    $('#date').datepicker({-->
-<!--        format: 'dd-MM-yyyy'-->
-<!--    });-->
-<!--</script>-->
 </html>

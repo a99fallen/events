@@ -29,30 +29,37 @@
     <div class="i-btn-wrapper display--flex justify--center align--center">
         <i class="i-btn fas fa-info"></i>
     </div>
-</div>
-<div class="container display--flex justify--center align--center">
-    <div class="registration-container">
-        <h1 class="title-reg color--primary font-size--l" th:text="#{user.register.container.title}">Registration</h1>
-        <form class="form-login" th:action="@{/register}" th:method="post" th:object="${registerUserCommand}">
-            <div class="label-wrapper">
+    <div class="container display--flex justify--center align--center">
+        <div class="registration-container">
+            <h1 class="title-reg color--primary font-size--l" th:text="#{user.register.container.title}">Registration</h1>
+            <form class="form-login" th:action="@{/register}" th:method="post" th:object="${registerUserCommand}">
+                <div class="label-wrapper"><label>Email</label></div>
+                <input th:field="*{username}" type="email" id="username" placeholder="Email" />
+                <div class="label-wrapper"><label class="password-label">Password</label></div>
+                <input th:field="*{password}" type="password" id="password" placeholder="Password" />
+<!--                <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"></div>-->
+                    <div class="display--flex justify--center align--center">
+                        <button class="login-btn display--flex display--row justify--center align--center" type="submit">
+                            <p class="font-size" th:text="#{user.register.save.button}>Submit</p>
+                            <i class="register-btn_icon fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+            </form>
+        </div>
+       
+<!--             <div class="label-wrapper">
                 <label><b class="color--secondary" th:text="#{user.register.username}">Email:</b>
                     <input th:field="*{username}" type="email" id="username"
                            th:placeholder="#{user.register.username}"/>
                 </label>
-            </div>
-            <div class="label-wrapper">
+            </div> -->
+<!--             <div class="label-wrapper">
                 <label><b class="color--secondary" th:text="#{user.register.password}">Password</b>
                     <input th:field="*{password}" type="password" id="password"
                            th:placeholder="#{user.register.password}"/>
-                </label></div>
-            <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"></div>
-            <div class="display--flex justify--center align--center">
-                <button class="login-btn display--flex display--row justify--center align--center" type="submit">
-                    <p class="font-size" th:text="#{user.register.save.button}">Submit</p>
-                    <i class="register-btn_icon fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </form>
+                </label></div> -->
+            
+
     </div>
 </div>
 </body>
