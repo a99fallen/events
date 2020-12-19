@@ -31,6 +31,10 @@ button:focus {
     color: #bdc7cd;
 }
 
+input::placeholder {
+    color: #bdc7cd;
+}
+
 input,
 input:active,
 input:focus {
@@ -43,6 +47,15 @@ input:focus {
     transition: all 0.2s ease-in-out;
     outline: none;
     appearance: none;
+}
+
+label {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    color: #bdc7cd;
+    text-shadow: 1px 1px 0px #ffffff;
 }
 
 .language-btn-wrapper {
