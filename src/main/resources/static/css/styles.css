@@ -191,12 +191,12 @@
 .task-name {
     margin-bottom: 10px;
     height: 35px;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 .task-description {
     height: 355px;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 .date-created,
@@ -210,7 +210,7 @@
 }
 
 .date-deadline {
-    color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 /* action-buttons-section */
