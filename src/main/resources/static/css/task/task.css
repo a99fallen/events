@@ -1,85 +1,75 @@
-body {
-    background-color: #6abadeba;
+* {
     font-family: 'Open Sans', sans-serif;
-}
-th {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.form-addtask{
-    width: 35vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    align-content: space-between;
+    box-sizing: border-box;
 }
 
-.div-addtask {
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+.add-task-container {
+    width: 450px;
+    height: 600px;
+    padding: 35px 35px 35px 35px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px 0px #9fc0d5;
 }
 
-.save-btn {
-    background-image: linear-gradient(120deg, #d6e4ed 0%, #c8dbe7 100%);
-    width: 30vw;
-    height: 5vh;
-    border: none;
-    border-radius: 17px;
-    padding-left: 7px;
-
-
-}
-
-.title-log {
-    font-size: 4vh;
+.title-add {
     text-align: center;
+    margin-bottom: 15px;
 }
 
-.addtask-container {
-    width: 40vw;
-    height: 45vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#name-input,
+#description-input {
+    width: 320px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 7.5px;
+    box-shadow: inset 1px 1px 2px #bdc7cd, inset -1px -1px 2px #ffffff;
+    transition: all 0.2s ease-in-out;
 }
-.title{
-    text-align: center;
-}
-.description{
-    text-align: center;
+
+#name-input {
+    height: 35px
 }
 .deadline{
     text-align: center;
 }
 
-
-label {
-    color: #000000;
-    font-size: 17px;
-}
-
-.name {
-    width: 35vw;
-    height: 5vh;
-    border-radius: 3px;
-    padding-left: 8px;
-    border-color: #9ba4b4;
-    margin-bottom: 20px;
-}
-
-.description-input {
-    width: 35vw;
-    height: 15vh;
-    border-radius: 3px;
-    padding-left: 8px;
-    border-color: #9ba4b4;
+#description-input {
+    height: 210px;
     resize: none;
-    margin-bottom: 20px;
+}
+
+.form-login {
+    height: 490px;
+}
+
+.deadline {
+    height: 35px;
+    width: 320px;
+    border-radius: 7.5px;
+}
+
+textarea:active,
+textarea:focus {
+    border: none;
+    outline: none;
+    border-radius: 7.5px;
+}
+
+textarea::placeholder {
+    font-size: 14px;
+    color: #bdc7cd;
+}
+
+textarea {
+    border: none;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #bdc7cd;
+    background-color: #e5edf3;
+    box-shadow: inset 1px 1px 2px #bdc7cd, inset -1px -1px 2px #ffffff;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
 }
