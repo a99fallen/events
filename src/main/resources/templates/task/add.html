@@ -31,6 +31,7 @@
     <div class="app-container addtask-container">
         <div class="div-addtask">
             <form class="form-addtask" th:action="@{/task/add}" th:method="post" th:object="${createTaskCommand}">
+
                 <fieldset>
                     <div class="title">
                         <label  th:text="#{add.task.title}" class="color--secondary">Title</label>
