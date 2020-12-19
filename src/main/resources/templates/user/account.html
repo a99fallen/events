@@ -91,11 +91,12 @@
                                 <div class="right-task-section">
                                     <p th:text="#{user.account.main.taskCreatedOn}" class="task-label">Task creation
                                         date</p>
-                                    <input class="date-created" type="date" readonly>
+                                    <input class="date-created" th:field="*{createdOn}" type="date" readonly>
                                     <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated
                                         completion
                                         date</p>
-                                    <input class="date-deadline" type="date">
+                                    <input class="date-deadline" th:field="*{deadline}" type="date">
+
                                     <!-- action-buttons-section -->
                                     <div class="action-btn-wrapper display--flex justify--end align--end">
                                         <button type="submit" hidden="hidden"

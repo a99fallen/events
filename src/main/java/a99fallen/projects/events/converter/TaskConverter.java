@@ -6,8 +6,8 @@ import a99fallen.projects.events.web.command.CreateTaskCommand;
 import a99fallen.projects.events.web.command.EditTaskCommand;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDate;
+
 
 @Component
 public class TaskConverter {
@@ -37,12 +37,16 @@ public class TaskConverter {
         return EditTaskCommand.builder()
                 .name(task.getName().trim())
                 .description(task.getDescription().trim())
+                .createdOn(task.getCreatedOn())
+                .deadline(task.getDeadline())
                 .build();
     }
 
     public Task editTaskFromCommand(EditTaskCommand editTaskCommand, Task task){
         task.setName(editTaskCommand.getName().trim());
         task.setDescription(editTaskCommand.getDescription().trim());
+        task.setCreatedOn(editTaskCommand.getCreatedOn());
+        task.setDeadline(editTaskCommand.getDeadline());
         return  task;
     }
 }
