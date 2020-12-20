@@ -21,7 +21,6 @@ public class UserAccountController {
 
     private final TaskService taskService;
     private final AuthenticatedUser authenticatedUser;
-    private String selectedTaskName;
 
     @ModelAttribute("username")
     public String username() {
@@ -37,7 +36,6 @@ public class UserAccountController {
 
     @GetMapping("/account/{name}")
     public String getUserAccountAndTask(@PathVariable("name") String name, Model model) {
-        selectedTaskName = name;
         model.addAttribute("userTasks", taskService.findUserTasks());
         EditTaskCommand oneTask = taskService.getTaskByName(name);
         if (oneTask != null) {
@@ -55,7 +53,7 @@ public class UserAccountController {
     }
 
     @PostMapping("/account")
-    public String editTask(@Valid EditTaskCommand editTaskCommand) {
+    public String editTask(@Valid EditTaskCommand editTaskCommand, @RequestParam String selectedTaskName) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
         try {
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
@@ -69,7 +67,7 @@ public class UserAccountController {
     }
 
     @PostMapping("account/deleteTask")
-    public String deleteTask(@Valid EditTaskCommand editTaskCommand) {
+    public String deleteTask(@RequestParam String selectedTaskName) {
         taskService.deleteTask(selectedTaskName);
         return "redirect:/account";
     }
