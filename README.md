@@ -8,4 +8,3 @@
 
 
 There was an unexpected error (type=Not Found, status=404).
-https://media.giphy.com/media/9J7tdYltWyXIY/source.gif
