@@ -37,8 +37,12 @@
                     <div class="dropdown-content display--flex display--row align--center" style="left:1;">
                         <div th:each="task:${userTasks}"
                              class="custom-task display--flex display--row align--center">
-                            <a th:href="@{/account/{name}(name = ${task.name})}" th:text="${task.name}">
-                                <div class="account-task-button" type="submit"></div>
+                            <a th:href="@{/account/{name}(name = ${task.name})}">
+<!--                                <div class="account-task-button" type="submit"></div>-->
+                                <div class="sign-up-btn display--flex flex--row justify--center align--center">
+                                    <p th:text="${task.name}" class="sign-up-btn_label font-size">Task name</p>
+<!--                                    <i class="sign-up-btn_icon fas fa-pencil-alt"></i>-->
+                                </div>
                             </a>
                         </div>
                     </div>

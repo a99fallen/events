@@ -54,24 +54,24 @@ public class UserAccountController {
     }
 
     @PostMapping("/account")
-    public String editTask(@Valid EditTaskCommand editTaskCommand) {
+    public String editTask(@Valid EditTaskCommand editTaskCommand, BindingResult bindingResult) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
-        try {
+
+        if (bindingResult.hasErrors()) {
+            log.debug("Błędne dane: {}", bindingResult.getAllErrors());
+            return "redirect:/account";
+        }
+        try{
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
             log.debug("Udana edycja danych? {}", success);
             return "redirect:/account";
-//        } catch (NoTasksException nte) {
-//            log.debug("Błąd przy zapisie danych: {}", nte);
-//            if (!taskService.edit(editTaskCommand, selectedTaskName))
-//                task.setName("No task");
-//            task.setDescription("No task description");
-//            return "redirect:/account";
-
-        } catch (RuntimeException re) {
+        } catch (
+                RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd przy edycji danych", re);
             return "redirect:/account";
         }
+
     }
 
     @PostMapping("account/deleteTask")
