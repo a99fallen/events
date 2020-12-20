@@ -1,7 +1,6 @@
 package a99fallen.projects.events.web.controller;
 
-import a99fallen.projects.events.domain.model.Task;
-import a99fallen.projects.events.domain.repository.TaskRepository;
+import a99fallen.projects.events.account.access.AuthenticatedUser;
 
 import a99fallen.projects.events.sevice.TaskService;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
@@ -11,10 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,7 +21,12 @@ import javax.validation.Valid;
 public class UserAccountController {
 
     private final TaskService taskService;
-    private String selectedTaskName;
+    private final AuthenticatedUser authenticatedUser;
+
+    @ModelAttribute("username")
+    public String username() {
+        return authenticatedUser.getUsername();
+    }
 
     @GetMapping("/account")
     public String getUserAccount(Model model) {
@@ -36,7 +37,6 @@ public class UserAccountController {
 
     @GetMapping("/account/{name}")
     public String getUserAccountAndTask(@PathVariable("name") String name, Model model) {
-        selectedTaskName = name;
         model.addAttribute("userTasks", taskService.findUserTasks());
         EditTaskCommand oneTask = taskService.getTaskByName(name);
         if (oneTask != null) {
@@ -54,19 +54,17 @@ public class UserAccountController {
     }
 
     @PostMapping("/account")
-    public String editTask(@Valid EditTaskCommand editTaskCommand) {
+    public String editTask(@Valid EditTaskCommand editTaskCommand, @RequestParam String selectedTaskName, BindingResult bindingResult) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
+
+        if (bindingResult.hasErrors()) {
+            log.debug("Błędne dane: {}", bindingResult.getAllErrors());
+            return "redirect:/account";
+        }
         try {
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
             log.debug("Udana edycja danych? {}", success);
             return "redirect:/account";
-//        } catch (NoTasksException nte) {
-//            log.debug("Błąd przy zapisie danych: {}", nte);
-//            if (!taskService.edit(editTaskCommand, selectedTaskName))
-//                task.setName("No task");
-//            task.setDescription("No task description");
-//            return "redirect:/account";
-
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd przy edycji danych", re);
@@ -75,7 +73,7 @@ public class UserAccountController {
     }
 
     @PostMapping("account/deleteTask")
-    public String deleteTask(@Valid EditTaskCommand editTaskCommand) {
+    public String deleteTask(@RequestParam String selectedTaskName) {
         taskService.deleteTask(selectedTaskName);
         return "redirect:/account";
     }

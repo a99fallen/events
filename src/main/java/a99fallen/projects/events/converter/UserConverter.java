@@ -9,12 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class UserConverter {
-    private final PasswordEncoder passwordEncoder;
+
     public User from(RegisterUserCommand registerUserCommand){
         return User.builder()
                 .username(registerUserCommand.getUsername())
                 .password(registerUserCommand.getPassword())
-//                .roles(Set.of("ROLE_USER")) ma to robić Service
                 .build();
     }
 }

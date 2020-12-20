@@ -1,5 +1,6 @@
 package a99fallen.projects.events.security;
 
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,8 @@ import javax.sql.DataSource;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final CustomUserDetailsService customUserDetailsService;
 
     private DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -32,19 +35,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.jdbcAuthentication()
-                .dataSource(dataSource())
-                .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT username, role FROM users_roles WHERE username=?");
+        auth.userDetailsService(customUserDetailsService)
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/account").hasRole("USER")
-                .antMatchers("/register").permitAll()
-                //TODO ustawienie dostępu do sciezek
+                .antMatchers("/task/add").hasRole("USER")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

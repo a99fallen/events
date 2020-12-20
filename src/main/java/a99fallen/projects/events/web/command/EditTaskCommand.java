@@ -9,10 +9,9 @@ import java.time.LocalDate;
 
 @Data @Builder @AllArgsConstructor  @RequiredArgsConstructor
 public class EditTaskCommand {
-//    @NotNull
+
     @Size(min = 3, max = 64)
     private String name;
-//    @NotNull
     @Size(min = 3, max = 160)
     private String description;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
