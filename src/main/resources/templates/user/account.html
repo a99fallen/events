@@ -77,6 +77,7 @@
                                     <div class="left-task-section">
                                         <p th:text="#{user.account.main.taskName}" class="task-label">Task name</p>
                                         <label>
+                                            <input hidden="hidden" type="text" th:value="*{name}" required name="selectedTaskName">
                                             <input class="task-name" type="text" th:field="*{name}" name="name"
                                                 placeholder="Task name">
                                         </label>

@@ -11,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,7 +22,6 @@ import javax.validation.Valid;
 public class UserAccountController {
 
     private final TaskService taskService;
-    private String selectedTaskName;
 
     @GetMapping("/account")
     public String getUserAccount(Model model) {
@@ -36,7 +32,6 @@ public class UserAccountController {
 
     @GetMapping("/account/{name}")
     public String getUserAccountAndTask(@PathVariable("name") String name, Model model) {
-        selectedTaskName = name;
         model.addAttribute("userTasks", taskService.findUserTasks());
         EditTaskCommand oneTask = taskService.getTaskByName(name);
         if (oneTask != null) {
@@ -54,7 +49,7 @@ public class UserAccountController {
     }
 
     @PostMapping("/account")
-    public String editTask(@Valid EditTaskCommand editTaskCommand) {
+    public String editTask(@Valid EditTaskCommand editTaskCommand, @RequestParam String selectedTaskName) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
         try {
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
@@ -75,7 +70,7 @@ public class UserAccountController {
     }
 
     @PostMapping("account/deleteTask")
-    public String deleteTask(@Valid EditTaskCommand editTaskCommand) {
+    public String deleteTask(@RequestParam String selectedTaskName) {
         taskService.deleteTask(selectedTaskName);
         return "redirect:/account";
     }
