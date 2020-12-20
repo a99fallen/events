@@ -37,8 +37,4 @@ public class UserService {
         log.debug("Zapisany użytkownik: {}", userToCreate);
         return userToCreate.getId();
     }
-
-    public Boolean checkIfUserAlreadyExists(String username){
-        return userRepository.existsByUsername(username);
-    }
 }
