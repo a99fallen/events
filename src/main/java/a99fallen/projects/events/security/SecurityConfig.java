@@ -1,6 +1,6 @@
 package a99fallen.projects.events.security;
 
-import a99fallen.projects.events.domain.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,8 +8,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -37,11 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource())
-//                .passwordEncoder(passwordEncoder())
-//                .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username = ?")
-//                .authoritiesByUsernameQuery("SELECT username, role FROM users_roles WHERE username=?");
         auth.userDetailsService(customUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
@@ -51,8 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/account").hasRole("USER")
                 .antMatchers("/task/add").hasRole("USER")
-                .antMatchers("/register").permitAll()
-                //TODO ustawienie dostępu do sciezek
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

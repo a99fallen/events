@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
@@ -21,11 +20,4 @@ public class TaskSummary {
     private LocalDate deadline;
     private String username;
 
-    public String getFormattedDateCreatedOn() {
-        return createdOn.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    }
-
-    public String getFormattedDaeDeadline() {
-        return createdOn.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    }
 }

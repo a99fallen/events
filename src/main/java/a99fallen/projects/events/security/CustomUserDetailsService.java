@@ -1,7 +1,6 @@
 package a99fallen.projects.events.security;
 
 import a99fallen.projects.events.domain.repository.UserRepository;
-import a99fallen.projects.events.sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

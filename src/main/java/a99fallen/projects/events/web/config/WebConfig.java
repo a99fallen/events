@@ -13,7 +13,7 @@ import java.util.Locale;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Bean//musi się nazywać localeResolver bo inaczej nie zadziała
+    @Bean
     public LocaleContextResolver localeResolver() {
         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
         localeResolver.setDefaultLocale(Locale.forLanguageTag("en"));
