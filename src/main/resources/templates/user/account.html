@@ -55,7 +55,7 @@
                         <h1 th:text="#{user.account.heading}" class="heading color--primary font-size--m">Taskboard</h1>
                         <div class="operation-icons display--flex display--row">
                             <div class="logged-user-wrapper display--flex align--center">
-                                <p class="logged-user-name" placeholder="username"></p>
+                                <p class="logged-user-name" th:text="${username}"></p>
                                 <a href="/account">
                                     <i class="user-profile_icon far fa-user-circle"></i>
                                 </a>
@@ -92,7 +92,7 @@
                                             date</p>
                                         <input class="date-created" th:field="*{createdOn}" type="date" readonly>
 
-                                        <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated
+                                        <p th:text="#{user.account.main.taskDeadline}" class="task-label">Estimated
                                             completion
                                             date</p>
                                         <input class="date-deadline" th:field="*{deadline}" type="date">
