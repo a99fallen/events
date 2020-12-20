@@ -41,3 +41,7 @@
     width: 320px;
     border-radius: 7.5px;
 }
+
+.register-btn_icon {
+    padding-left: 10px;
+}
