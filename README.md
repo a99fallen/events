@@ -6,4 +6,5 @@
 
 ---
 
-Simple app for managing projects
+
+There was an unexpected error (type=Not Found, status=404).
