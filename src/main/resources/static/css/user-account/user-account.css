@@ -94,10 +94,10 @@
 
 .operation-icons {
     margin-top: 12.5px;
+    margin-bottom: 10px;
     font-size: 35px;
     color: #bdc7cd;
     cursor: pointer;
-    justify-content: space-around;
 }
 
 /* main section */
@@ -163,12 +163,10 @@
 .task-name {
     margin-bottom: 10px;
     height: 35px;
-    background-color: #FFFFFF;
 }
 
 .task-description {
     height: 355px;
-    background-color: #FFFFFF;
 }
 
 .date-created,
@@ -179,10 +177,12 @@
 
 .date-created {
     margin-bottom: 10px;
+
 }
 
-.date-deadline {
-    background-color: #FFFFFF;
+.date-created:active,
+.date-created:focus {
+    background-color: #e5edf3;
 }
 
 /* action-buttons-section */
@@ -276,7 +276,12 @@
 }
 
 input::placeholder {
-    color: #9fc0d5;
+    font-size: 13px;
+}
+
+.date-created,
+.date-deadline {
+    font-size: 13px;
 }
 
 /* .modal__container {
@@ -298,4 +303,14 @@ input::placeholder {
 .account-task-button {
     border: 0px;
     width: 300px;
+}
+
+.logged-user-name{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-profile_icon,
+.log-out_icon{
+    padding-left: 7.5px;
 }
