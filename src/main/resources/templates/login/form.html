@@ -11,61 +11,67 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/login/login.css">
+
     <title th:text="#{login.title}">Login Page</title>
 </head>
 
 <body>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
-            <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
-                <a href="?lang=pl">PL</a>
-            </div>
-            <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
-                <a href="?lang=en">EN</a>
-            </div>
-            <div class="i-btn-wrapper display--flex justify--center align--center">
-                <i class="i-btn fas fa-info"></i>
-            </div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<div class="language-btn-wrapper display--flex align--end justify--end color--primary">
+    <div class="PL-btn-wrapper display--flex justify--center align--center font-weight--bold">
+        <a href="?lang=pl">PL</a>
+    </div>
+    <div class="EN-btn-wrapper display--flex justify--center align--center font-weight--bold">
+        <a href="?lang=en">EN</a>
+    </div>
+    <div class="i-btn-wrapper display--flex justify--center align--center">
+        <i class="i-btn fas fa-info"></i>
+    </div>
+</div>
+<div class="container display--flex justify--center align--center">
+    <div class="app-container display--flex display--row">
+        <div class="greetings-wrapper">
+            <h1 th:text="#{login.greetings.h1}" class="greetings-message-lx font-size--xl">Welcome to<br>our new<br>Task
+                App.</h1>
+            <h2 th:text="#{login.greetings.h2upper}" class="greetings-message-l font-size--l">Task App is an efficient
+                task organizer that enables its
+                users to keep track of their projects, tasks and goals.</h2>
+            <h2 th:text="#{login.greetings.h2lower}" class="greetings-message-l font-size--l">Start using it today!</h2>
+            <!--                <h6 th:text="#{login.greetings.special}" class="greetings-message-s font-size&#45;&#45;xs">Special price!</h6>-->
+            <!--                <h6 th:text="#{login.greetings.special2}" class="greetings-message-s font-size&#45;&#45;xs">Special price!2</h6>-->
+            <!--                <h6 th:text="#{login.greetings.special3}" class="greetings-message-s font-size&#45;&#45;xs">Special price!3</h6>-->
         </div>
-    <div class="container display--flex justify--center align--center">
-        <div class="app-container display--flex display--row">
-            <div class="greetings-wrapper">
-                <h1 th:text="#{login.greetings.h1}" class="greetings-message-lx font-size--xl">Welcome to<br>our new<br>Task App.</h1>
-                <h2 th:text="#{login.greetings.h2upper}" class="greetings-message-l font-size--l">Task App is an efficient task organizer that enables its
-                    users to keep track of their projects, tasks and goals.</h2>
-                <h2 th:text="#{login.greetings.h2lower}" class="greetings-message-l font-size--l">Start using it today!</h2>
-<!--                <h6 th:text="#{login.greetings.special}" class="greetings-message-s font-size&#45;&#45;xs">Special price!</h6>-->
-<!--                <h6 th:text="#{login.greetings.special2}" class="greetings-message-s font-size&#45;&#45;xs">Special price!2</h6>-->
-<!--                <h6 th:text="#{login.greetings.special3}" class="greetings-message-s font-size&#45;&#45;xs">Special price!3</h6>-->
+        <div class="login-wrapper">
+            <h1 th:text="#{login.login.form.title}" class="title-log color--primary font-size--l">Login</h1>
+            <div class="form-wrapper">
+                <form class="form-login display--flex flex--column color--primary" th:action="@{/login}"
+                      th:method="post">
+                    <label th:text="#{login.login}">Email</label>
+                    <input type="email" required name="username" id="username" placeholder="Email">
+                    <label th:text="#{login.password}" class="password-label">Password</label>
+                    <input type="password" required name="password" id="password" placeholder="Password">
+                    <div class="display--flex justify--center align--center">
+                        <button th:text="#{login.submit.button}" class="login-btn color--primary font-size"
+                                type="submit" name="Login">Log
+                            In
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="login-wrapper">
-                <h1 th:text="#{login.login.form.title}" class="title-log color--primary font-size--l">Login</h1>
-                <div class="form-wrapper">
-                    <form class="form-login display--flex flex--column color--primary" th:action="@{/login}"
-                        th:method="post">
-                        <label th:text="#{login.login}">Email</label>
-                        <input type="email" required name="username" id="username" placeholder="Email">
-                        <label th:text="#{login.password}" class="password-label">Password</label>
-                        <input type="password" required name="password" id="password" placeholder="Password">
-                        <div class="display--flex justify--center align--center">
-                            <button th:text="#{login.submit.button}" class="login-btn color--primary font-size" type="submit" name="Login">Log
-                                In</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- sign-up-section -->
-                <div class="sign-up-wrapper display--flex flex--row color--primary justify--center align--center">
-                    <div th:text="#{login.question}">Don't have an account?</div><a href="/register">
-                        <div class="sign-up-btn display--flex flex--row justify--center align--center">
-                            <p th:text="#{login.singUp}" class="sign-up-btn_label font-size">Sign up now!</p>
-                            <i class="sign-up-btn_icon fas fa-pencil-alt"></i>
-                        </div>
-                    </a>
+            <!-- sign-up-section -->
+            <div class="sign-up-wrapper display--flex flex--row color--primary justify--center align--center">
+                <div th:text="#{login.question}">Don't have an account?</div>
+                <a href="/register">
+                    <div class="sign-up-btn display--flex flex--row justify--center align--center">
+                        <p th:text="#{login.singUp}" class="sign-up-btn_label font-size">Sign up now!</p>
+                        <i class="sign-up-btn_icon fas fa-pencil-alt"></i>
+                    </div>
+                </a>
 
-                </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>

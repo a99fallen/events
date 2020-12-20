@@ -63,12 +63,17 @@ public class TaskService {
         EditTaskCommand editTaskCommand = taskConverter.editTaskCommand(task);
         return editTaskCommand;
     }
+
     @Transactional
     public boolean edit(EditTaskCommand editTaskCommand, String name) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
         Task test = taskRepository.getByName(name);
-        taskConverter.editTaskFromCommand(editTaskCommand, test);
-        return true;
+        if (!taskRepository.findAll().isEmpty()) {
+            taskConverter.editTaskFromCommand(editTaskCommand, test);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Transactional

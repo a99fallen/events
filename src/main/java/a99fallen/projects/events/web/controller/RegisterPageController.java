@@ -24,7 +24,7 @@ public class RegisterPageController {
     @GetMapping
     public String getRegisterPage(Model model){
         model.addAttribute(new RegisterUserCommand());
-        return "form";
+        return "register";
     }
 
     @PostMapping
@@ -32,7 +32,7 @@ public class RegisterPageController {
         log.debug("Dane do utworzenia użytkownika: {}", registerUserCommand);
         if(bindingResult.hasErrors()) {
             log.debug("Błędne dane: {}", bindingResult.getAllErrors());
-            return "form";
+            return "register";
         }
             try{
                 Long id = userService.create(registerUserCommand);
@@ -40,10 +40,10 @@ public class RegisterPageController {
                 return "redirect:/";
             } catch (UserAlreadyExistsException uaee) {
                 bindingResult.rejectValue("username", null, "Użytkownik o takiej nazwie już istnieje");
-                return "form";
+                return "register";
             } catch (RuntimeException re) {
                 bindingResult.rejectValue(null, null, "Wystąpił błąd");
-                return "form";
+                return "register";
         }
     }
 }
