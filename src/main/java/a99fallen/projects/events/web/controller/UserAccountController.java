@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -53,8 +54,13 @@ public class UserAccountController {
     }
 
     @PostMapping("/account")
-    public String editTask(@Valid EditTaskCommand editTaskCommand, @RequestParam String selectedTaskName) {
+    public String editTask(@Valid EditTaskCommand editTaskCommand, @RequestParam String selectedTaskName, BindingResult bindingResult) {
         log.debug("Dane do edycji taska: {}", editTaskCommand);
+
+        if (bindingResult.hasErrors()) {
+            log.debug("Błędne dane: {}", bindingResult.getAllErrors());
+            return "redirect:/account";
+        }
         try {
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
             log.debug("Udana edycja danych? {}", success);
