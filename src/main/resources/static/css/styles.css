@@ -17,6 +17,43 @@
     box-shadow: 0px 5px 10px 0px #9fc0d5;
 }
 
+.form-login {
+    padding: 10px 30px 0px 30px;
+    width: 380px;
+    height: 240px;
+    border-radius: 10px;
+    background-color: #e5edf3;
+    box-shadow: 0px 5px 10px 0px #bdc7cd;
+}
+
+.login-btn {
+    width: 150px;
+    height: 50px;
+    padding: 0px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 35px;
+    box-shadow: -4px -4px 15px #FFF, 4px 4px 15px #9fc0d5;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#username,
+#password {
+    width: 320px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 7.5px;
+    box-shadow: inset 1px 1px 2px #bdc7cd, inset -1px -1px 2px #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.label-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 a,
 a:visited,
 a:focus {
@@ -26,16 +63,22 @@ a:focus {
 
 button,
 button:visited,
-button:focus {
+button:focus,
+textarea:active,
+textarea:focus {
     outline: none;
     border: none;
+    outline: none;
     color: #bdc7cd;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
+    font-size: 14px;
     color: #bdc7cd;
 }
 
+textarea,
 input,
 input:active,
 input:focus {
@@ -43,11 +86,28 @@ input:focus {
     padding-left: 10px;
     padding-right: 5px;
     color: #bdc7cd;
-    background-color: #ffffff;
     box-shadow: inset 1px 1px 2px #bdc7cd, inset -1px -1px 2px #ffffff;
     transition: all 0.2s ease-in-out;
     outline: none;
     appearance: none;
+}
+
+input,
+textarea {
+    background-color: #e5edf3;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+    background-color: #ffffff;
+}
+
+textarea {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 label {

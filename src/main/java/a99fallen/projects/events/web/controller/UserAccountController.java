@@ -1,5 +1,8 @@
 package a99fallen.projects.events.web.controller;
 
+import a99fallen.projects.events.domain.model.Task;
+import a99fallen.projects.events.domain.repository.TaskRepository;
+
 import a99fallen.projects.events.sevice.TaskService;
 import a99fallen.projects.events.web.command.CreateTaskCommand;
 import a99fallen.projects.events.web.command.EditTaskCommand;
@@ -16,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@Slf4j @RequiredArgsConstructor
+@Slf4j
+@RequiredArgsConstructor
 @RequestMapping
 public class UserAccountController {
 
@@ -32,7 +36,7 @@ public class UserAccountController {
 
     @GetMapping("/account/{name}")
     public String getUserAccountAndTask(@PathVariable("name") String name, Model model) {
-        selectedTaskName =name;
+        selectedTaskName = name;
         model.addAttribute("userTasks", taskService.findUserTasks());
         EditTaskCommand oneTask = taskService.getTaskByName(name);
         if (oneTask != null) {
@@ -56,16 +60,23 @@ public class UserAccountController {
             boolean success = taskService.edit(editTaskCommand, selectedTaskName);
             log.debug("Udana edycja danych? {}", success);
             return "redirect:/account";
+//        } catch (NoTasksException nte) {
+//            log.debug("Błąd przy zapisie danych: {}", nte);
+//            if (!taskService.edit(editTaskCommand, selectedTaskName))
+//                task.setName("No task");
+//            task.setDescription("No task description");
+//            return "redirect:/account";
+
         } catch (RuntimeException re) {
             log.warn(re.getLocalizedMessage());
             log.debug("Błąd przy edycji danych", re);
-                return "redirect:/account";
+            return "redirect:/account";
         }
     }
 
     @PostMapping("account/deleteTask")
-        public String deleteTask(@Valid EditTaskCommand editTaskCommand){
-            taskService.deleteTask(selectedTaskName);
+    public String deleteTask(@Valid EditTaskCommand editTaskCommand) {
+        taskService.deleteTask(selectedTaskName);
         return "redirect:/account";
     }
 }

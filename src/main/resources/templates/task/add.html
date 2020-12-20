@@ -27,6 +27,8 @@
         <i class="i-btn fas fa-info"></i>
     </div>
 </div>
+<<<<<<< HEAD
+</div>
 <div class="container display--flex justify--center align--center">
     <div class="app-container addtask-container">
         <div class="div-addtask">
@@ -50,12 +52,14 @@
                     <input th:field="*{deadline}" class="deadline" name="deadline" type="date">
                 </div>
                 <!-- <div th:if="${#fields.hasErrors()}" th:text="${#fields.errors()}"/> -->
-                <div class="display--flex justify--center align--center">
-                    <button th:text="#{add.task.save.button}"
-                            class="login-btn display--flex display--row justify--center align--center"
-                            name="save"
-                            type="submit">
-                        <p class="font-size">Save</p>
+                <div class="display--flex justify--between align--center">
+                    <button class="login-btn display--flex display--row justify--center align--center" type="submit">
+                        <p class="font-size" th:text="#{user.register.save.button}">Submit</p>
+                        <i class="register-btn_icon fas fa-paper-plane"></i>
+                    </button>
+                    <button class="login-btn display--flex display--row justify--center align--center" type="submit">
+                        <a href="/" class="font-size" th:text="#{user.register.cancel.button}">Cancel</a>
+                        <i class="register-btn_icon fas fa-undo-alt"></i>
                     </button>
                 </div>
             </form>
