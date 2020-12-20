@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="/css/user-account/user-account.css">
     <title th:text="#{user.account.title}">User Account</title>
 </head>
+
 <body>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <div class="language-btn-wrapper display--flex align--end justify--end color--primary">
@@ -37,11 +39,10 @@
                     <div class="dropdown-content display--flex display--row align--center" style="left:1;">
                         <div th:each="task:${userTasks}"
                              class="custom-task display--flex display--row align--center">
+
                             <a th:href="@{/account/{name}(name = ${task.name})}">
-<!--                                <div class="account-task-button" type="submit"></div>-->
                                 <div class="sign-up-btn display--flex flex--row justify--center align--center">
                                     <p th:text="${task.name}" class="sign-up-btn_label font-size">Task name</p>
-<!--                                    <i class="sign-up-btn_icon fas fa-pencil-alt"></i>-->
                                 </div>
                             </a>
                         </div>
@@ -55,14 +56,17 @@
             <nav class="nav-bar display--flex flex--row">
                 <div class="login-section display--flex display--row justify--between">
                     <h1 th:text="#{user.account.heading}" class="heading color--primary font-size--m">Taskboard</h1>
-                    <div class="operation-icons">
-                        <p placeholder="username"></p>
-                        <a href="/account">
-                            <i class="far fa-user-circle"></i>
-                        </a>
-                        <a th:href="@{/logout}">
-                            <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                    <div class="operation-icons display--flex display--row">
+                        <div class="logged-user-wrapper display--flex align--center">
+                            <p class="logged-user-name" th:text="${username}"></p>
+                            <a href="/account">
+                                <i class="user-profile_icon far fa-user-circle"></i>
+                            </a>
+                            <a th:href="@{/logout}">
+                                <i class="log-out_icon fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+
                         <!-- <h1 th:text="#{registration.success.subtitle}">you are logged.</h1> -->
                     </div>
                 </div>
@@ -76,20 +80,24 @@
                                 <div class="left-task-section">
                                     <p th:text="#{user.account.main.taskName}" class="task-label">Task name</p>
                                     <label>
-                                        <input class="task-name" type="text" th:field="*{name}" name="name">
+                                        <input hidden="hidden" type="text" th:value="*{name}" required
+                                               name="selectedTaskName">
+                                        <input class="task-name" type="text" th:field="*{name}" name="name"
+                                               placeholder="Task name">
                                     </label>
                                     <p th:text="#{user.account.main.taskDescription}" class="task-label">Task
                                         description</p>
                                     <label>
                                         <input class="task-description" type="text" th:field="*{description}"
-                                               name="description">
+                                               name="description" placeholder="Task description">
                                     </label>
                                 </div>
                                 <div class="right-task-section">
                                     <p th:text="#{user.account.main.taskCreatedOn}" class="task-label">Task creation
                                         date</p>
                                     <input class="date-created" th:field="*{createdOn}" type="date" readonly>
-                                    <p th:text="#{user.account.main.tasDeadline}" class="task-label">Estimated
+
+                                    <p th:text="#{user.account.main.taskDeadline}" class="task-label">Estimated
                                         completion
                                         date</p>
                                     <input class="date-deadline" th:field="*{deadline}" type="date">
@@ -112,7 +120,7 @@
                     <div class="add-btn-section display--flex align--center justify--between">
                         <a href="/task/add">
                             <div class="add-btn-wrapper display--flex justify--center align--center">
-                                <p th:text="#{user.account.addButton}" class="add-btn_label">Add new task</p>
+                                <p th:text="#{user.account.addButton}" class="add-btn_label">Add New Task</p>
                                 <i class="add-btn_icon fas fa-plus"></i>
                             </div>
                         </a>
@@ -125,4 +133,5 @@
     </div>
 </div>
 </body>
+
 </html>
